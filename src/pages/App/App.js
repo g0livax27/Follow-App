@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import bootstrap from 'bootstrap';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import AuthPage from '../AuthPage/AuthPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';

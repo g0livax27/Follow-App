@@ -49,5 +49,4 @@ export default class SignUpForm extends Component {
           </div>
         );
       }
-}
-
+};
