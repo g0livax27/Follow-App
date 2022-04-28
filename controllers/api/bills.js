@@ -20,7 +20,7 @@ async function index(req, res) {
 // Delete Route \\
 async function Delete(req, res) {
     try{
-        const { id } = req.params;
+        const { id } = await req.params;
         await Bills.findByIdAndDelete(id);
     }catch(err){
         res.status(400).json(err);
@@ -30,8 +30,8 @@ async function Delete(req, res) {
 // Update Route \\
 async function update(req, res) {
     try{
-        const { id } = req.params;
-        const { body } = req;
+        const { id } = await req.params;
+        const { body } = await req;
         const updatedBill = await Bills.findByIdAndUpdate(id, body, { new: true });
         res.status(200).json(updatedBill);
     }catch(err){
@@ -50,18 +50,15 @@ async function create(req, res) {
 };
 
 // Edit Route \\
-async
-
-// router.get('/:id/edit', (req, res) => {
-//     const { id } = req.params;
-//     Bills.findById(id)
-//         .then((bills) => {
-//             res.render('bills/Edit', { bills });
-//         })
-//         .catch((err) => {
-//             res.status(400.).json({ err });
-//         })
-// });
+async function edit( req, res) {
+    try{
+        const { id } = await req.params;
+        const editedBill = await Bills.findById(id);
+        res.status(200).json(editedBill);
+    }catch(err){
+        res.status(400).json(err);
+    }
+};
 
 // Show Route \\
 async function show(req, res) {
