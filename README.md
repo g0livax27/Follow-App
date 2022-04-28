@@ -2,9 +2,12 @@
 
 ## Technologies Used:
 
+- Bcrypt
 - Bootstrap
 - Express
+- jSon Webtoken
 - Mongoose
+- Morgan
 - Node
 - React
 
