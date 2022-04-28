@@ -39,17 +39,14 @@ async function update(req, res) {
 };
 
 // Create Route \\
-router.post('/', (req, res) => {
-    req.body.billPaid = req.body.billPaid === 'on' ? true : false;
-    req.body.username = req.session.username;
-    Bills.create(req.body)
-        .then((createdBill) => {
-            res.redirect(`/bills/${createdBill.month}`);
-        })
-        .catch((err) => {
-            res.status(400).json({ err });
-        })
-});
+async function create(req, res) {
+    try{
+        const createdBill = await Bills.create(req.body);
+        res.status(200).json(createdBill);
+    }catch(err){
+        res.status(400).json(err);
+    }
+};
 
 // Edit Route \\
 router.get('/:id/edit', (req, res) => {
