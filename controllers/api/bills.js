@@ -1,9 +1,9 @@
 // Dependencies \\
 const Bills = require('../models/bill.js');
-module.exports = {Index, Delete, Update, Create, Edit, Show};
+module.exports = {index, Delete, update, create, edit, Show};
 
 // Index Route \\
-async function Index(req, res) {
+async function index(req, res) {
     try{
         const months = await Bills.find({});
         res.status(200).json(months)
@@ -18,16 +18,14 @@ async function Index(req, res) {
 // });
 
 // Delete Route \\
-router.delete('/:id', (req, res) => {
-    const { id } = req.params;
-    Bills.findByIdAndDelete(id)
-        .then((deletedBill) => {
-            res.redirect(`/bills/${deletedBill.month}`);
-        })
-        .catch((err) => {
-            res.status(400).json({ err });
-        })
-});
+async function Delete(req, res) {
+    try{
+        const { id } = req.params
+        await Bills.findByIdAndDelete(id);
+    }catch(err){
+        res.status(400).json(err);
+    }
+};
 
 // Update Route \\
 router.put('/:id', (req, res) => {
@@ -68,10 +66,10 @@ router.get('/:id/edit', (req, res) => {
 });
 
 // Show Route \\
-async function Show(req, res) {
+async function show(req, res) {
     try{
-        const monthTwo = await req.params.month
-        const months = await Bill.find({month: monthTwo});
+        const { month } = await req.params
+        const months = await Bill.find({month: month});
         res.status(200).json(months);
     }catch(err){
         res.status(400).json(err)
