@@ -1,20 +1,18 @@
 // Dependencies \\
-const express = require('express');
 const Wishlist = require('../models/wishlist.js');
-
-// Create Route \\
-const router = express.Router();
-
-// Middleware \\
-router.use((req, res, next) => {
-    if(req.session.loggedIn) {
-        next();
-    } else {
-        res.redirect('/user/login');
-    }
-});
+module.exports = {index, Delete, update, create, edit, show};
 
 // Index Route \\
+
+// Index Route \\
+async function index(req, res) {
+    try{
+        const months = await Bills.find({});
+        res.status(200).json(months);
+    }catch(err){
+        res.status(400).json(err);
+    }
+};
 router.get('/', (req, res) => {
     const { months } = req.params;
     Wishlist.find({ months, username: req.session.username })
@@ -27,13 +25,13 @@ router.get('/', (req, res) => {
 });
 
 // New Routes \\
-router.get('/new', (req, res) => {
-    res.render('wishlist/New')
-});
+// router.get('/new', (req, res) => {
+//     res.render('wishlist/New')
+// });
 
-router.get('/:month/new', (req, res) => {
-    res.render('wishlist/Month')
-});
+// router.get('/:month/new', (req, res) => {
+//     res.render('wishlist/Month')
+// });
 
 // Delete Route \\
 router.delete('/:id', (req, res) => {
@@ -109,4 +107,59 @@ router.get('/:month', (req, res) => {
 });
 
 
-module.exports = router;
+
+
+
+// Delete Route \\
+async function Delete(req, res) {
+    try{
+        const { id } = await req.params;
+        await Bills.findByIdAndDelete(id);
+    }catch(err){
+        res.status(400).json(err);
+    }
+};
+
+// Update Route \\
+async function update(req, res) {
+    try{
+        const { id } = await req.params;
+        const { body } = await req;
+        const updatedBill = await Bills.findByIdAndUpdate(id, body, { new: true });
+        res.status(200).json(updatedBill);
+    }catch(err){
+        res.status(400).json(err);
+    }
+};
+
+// Create Route \\
+async function create(req, res) {
+    try{
+        const createdBill = await Bills.create(req.body);
+        res.status(200).json(createdBill);
+    }catch(err){
+        res.status(400).json(err);
+    }
+};
+
+// Edit Route \\
+async function edit( req, res) {
+    try{
+        const { id } = await req.params;
+        const editedBill = await Bills.findById(id);
+        res.status(200).json(editedBill);
+    }catch(err){
+        res.status(400).json(err);
+    }
+};
+
+// Show Route \\
+async function show(req, res) {
+    try{
+        const { month } = await req.params;
+        const months = await Bill.find({month: month});
+        res.status(200).json(months);
+    }catch(err){
+        res.status(400).json(err);
+    }
+};
