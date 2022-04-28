@@ -6,7 +6,7 @@ module.exports = {index, Delete, update, create, edit, Show};
 async function index(req, res) {
     try{
         const months = await Bills.find({});
-        res.status(200).json(months)
+        res.status(200).json(months);
     }catch(err){
         res.status(400).json(err);
     }
@@ -20,7 +20,7 @@ async function index(req, res) {
 // Delete Route \\
 async function Delete(req, res) {
     try{
-        const { id } = req.params
+        const { id } = req.params;
         await Bills.findByIdAndDelete(id);
     }catch(err){
         res.status(400).json(err);
@@ -28,17 +28,15 @@ async function Delete(req, res) {
 };
 
 // Update Route \\
-router.put('/:id', (req, res) => {
-    const { id } = req.params;
-    req.body.billPaid = req.body.billPaid === 'on' ? true : false;
-    Bills.findByIdAndUpdate(id, req.body, { new: true })
-        .then((updatedBill) => {
-            res.redirect(`/bills/${updatedBill.month}`);
-        })
-        .catch((err) => {
-            res.status(400).json({ err });
-        })
-});
+async function update(req, res) {
+    try{
+        const { id } = req.params;
+        const updatedBill = await Bills.findByIdAndUpdate(id);
+        res.status(200).json(updatedBill)
+    }catch(err){
+        res.status(400).json(err);
+    }
+};
 
 // Create Route \\
 router.post('/', (req, res) => {
@@ -68,11 +66,11 @@ router.get('/:id/edit', (req, res) => {
 // Show Route \\
 async function show(req, res) {
     try{
-        const { month } = await req.params
+        const { month } = await req.params;
         const months = await Bill.find({month: month});
         res.status(200).json(months);
     }catch(err){
-        res.status(400).json(err)
+        res.status(400).json(err);
     }
 };
 
