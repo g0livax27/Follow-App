@@ -13,11 +13,12 @@ function App() {
   const [ user, setUser ] = useState(null);
   const [ bills, setBills ] = useState([]);
 
+
   useEffect(() => {
     (async() => {
       try{
-        const response = await fetch('http://localhost:3001/api/bills/');
-        const data = response.json();
+        const response = await fetch('http://localhost:3001/api/bills');
+        const data = await response.json();
         setBills(data);
       }catch(err){
         console.log(err);
@@ -29,7 +30,7 @@ function App() {
     <main className="App">
       <Routes>
         <Route path='/expenses' element={<HomePage/>}/>
-        <Route path='/bills' element={<BillsPage/>}/>
+        <Route path='/bills' element={<BillsPage bill={bills}/>}/>
       </Routes>
     </main>
   )

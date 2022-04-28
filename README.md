@@ -4,6 +4,7 @@
 
 - Bcrypt
 - Bootstrap
+- Cors
 - Express
 - jSon Webtoken
 - Mongoose

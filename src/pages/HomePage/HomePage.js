@@ -1,5 +1,10 @@
+import Button from "../../components/Button/Button";
+
 export default function HomePage(){
     return(
-        <h1>Homepage</h1>
+        <main>
+            <h1>Homepage</h1>
+            <Button/>
+        </main>
     )
 };
