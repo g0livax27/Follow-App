@@ -1,6 +1,6 @@
 // Dependencies \\
 const Bills = require('../models/bill.js');
-module.exports = {index, Delete, update, create, edit, Show};
+module.exports = {index, Delete, update, create, edit, show};
 
 // Index Route \\
 async function index(req, res) {
@@ -31,8 +31,9 @@ async function Delete(req, res) {
 async function update(req, res) {
     try{
         const { id } = req.params;
-        const updatedBill = await Bills.findByIdAndUpdate(id);
-        res.status(200).json(updatedBill)
+        const { body } = req;
+        const updatedBill = await Bills.findByIdAndUpdate(id, body, { new: true });
+        res.status(200).json(updatedBill);
     }catch(err){
         res.status(400).json(err);
     }
@@ -49,16 +50,18 @@ async function create(req, res) {
 };
 
 // Edit Route \\
-router.get('/:id/edit', (req, res) => {
-    const { id } = req.params;
-    Bills.findById(id)
-        .then((bills) => {
-            res.render('bills/Edit', { bills });
-        })
-        .catch((err) => {
-            res.status(400.).json({ err });
-        })
-});
+async
+
+// router.get('/:id/edit', (req, res) => {
+//     const { id } = req.params;
+//     Bills.findById(id)
+//         .then((bills) => {
+//             res.render('bills/Edit', { bills });
+//         })
+//         .catch((err) => {
+//             res.status(400.).json({ err });
+//         })
+// });
 
 // Show Route \\
 async function show(req, res) {
