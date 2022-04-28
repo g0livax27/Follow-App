@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const billsCtlrs = require('./controllers/api/bills');
+const billsCtlrs = require('../../controllers/api/bills');
 
 router.get('/', billsCtlrs.index);
 router.delete('/:id', billsCtlrs.Delete);

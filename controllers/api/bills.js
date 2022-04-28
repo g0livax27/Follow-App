@@ -1,6 +1,7 @@
 // Dependencies \\
-const Bills = require('../models/bill.js');
+const Bills = require('../../models/bill.js');
 module.exports = {index, Delete, update, create, edit, show};
+
 
 // Index Route \\
 async function index(req, res) {

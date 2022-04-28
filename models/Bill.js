@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const billSchema = new mongoose.Schema(
     {
     month: String,
-    billAmount: String,
+    billAmount: Number,
     billName: String,
     billPaid: Boolean
     }

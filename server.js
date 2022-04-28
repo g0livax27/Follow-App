@@ -1,7 +1,7 @@
 // ./server.js
 const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
+// const favicon = require('serve-favicon');
 const logger = require('morgan');
 
 require('dotenv').config();
@@ -14,7 +14,7 @@ app.use(logger('dev'));
 // why is that?
 app.use(express.json());
 // Configure both serve-favicon & static middleware to serve from the production 'build' folder
-app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
 // Check if token and create req.user
@@ -23,7 +23,7 @@ app.use(require('./config/checkToken'));
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/bills', require('./routes/api/bills'));
-app.use('/wishlist', require('./routes/api/wishlist'));
+// app.use('/wishlist', require('./routes/api/wishlist'));
 
 // The following "catch all" route (note the *) is necessary to return the index.html on all non-AJAX requests
 app.get('/*', function(req, res) {

@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const wishlistSchema = new mongoose.Schema(
     {
     month: String,
-    itemAmount: String,
+    itemAmount: Number,
     itemName: String,
     mustHave: Boolean
     }
