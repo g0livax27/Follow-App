@@ -1,25 +1,21 @@
 // Dependencies \\
 const Bills = require('../models/bill.js');
-module.exports = {Index, Delete, Update, Create, Show};
+module.exports = {Index, Delete, Update, Create, Edit, Show};
 
 // Index Route \\
 async function Index(req, res) {
     try{
-        const month = await Bills.find({})
-        res.status(200).json(month)
+        const months = await Bills.find({});
+        res.status(200).json(months)
     }catch(err){
         res.status(400).json(err);
     }
 };
 
 // New Routes \\
-router.get('/new', (req, res) => {
-    res.render('bills/New')
-});
-
-router.get('/:month/new', (req, res) => {
-    res.render('bills/Month')
-});
+// router.get('/new', (req, res) => {
+//     res.render('bills/New')
+// });
 
 // Delete Route \\
 router.delete('/:id', (req, res) => {
@@ -71,28 +67,16 @@ router.get('/:id/edit', (req, res) => {
         })
 });
 
-// Show Routes \\
-router.get('/expense/:id', (req, res) => {
-    const { id } = req.params;
-    Bills.findById({ id })
-        .then((bill) => {
-            res.render('bills/Show', { bill });
-        })
-        .catch((err) => {
-            res.status(400).json({ err });
-        })
-});
-
-router.get('/:month', (req, res) => {
-    const { month } = req.params;
-    Bills.find({ month: month, username: req.session.username })
-        .then((bills) => {
-            res.render('bills/Month', { bills, month });
-        })
-        .catch((err) => {
-            res.status(400).json({ err });
-        })
-});
+// Show Route \\
+async function Show(req, res) {
+    try{
+        const monthTwo = await req.params.month
+        const months = await Bill.find({month: monthTwo});
+        res.status(200).json(months);
+    }catch(err){
+        res.status(400).json(err)
+    }
+};
 
 
 module.exports = router;
