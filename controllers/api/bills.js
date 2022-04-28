@@ -1,30 +1,16 @@
 // Dependencies \\
-const express = require('express');
 const Bills = require('../models/bill.js');
-
-// Create Route \\
-const router = express.Router();
-
-// Middleware \\
-router.use((req, res, next) => {
-    if(req.session.loggedIn) {
-        next();
-    } else {
-        res.redirect('/user/login');
-    }
-});
+module.exports = {Index, Delete, Update, Create, Show};
 
 // Index Route \\
-router.get('/', (req, res) => {
-    const { months } = req.params;
-    Bills.find({ months, username: req.session.username })
-        .then((foundMonths) => {
-            res.render('bills/Index', { foundMonths });
-        })
-        .catch((err) => {
-            res.status(400).json({ err });
-        })
-});
+async function Index(req, res) {
+    try{
+        const month = await Bills.find({})
+        res.status(200).json(month)
+    }catch(err){
+        res.status(400).json(err);
+    }
+};
 
 // New Routes \\
 router.get('/new', (req, res) => {
