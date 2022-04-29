@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function BillsPage({ bill }){
+export default function BillsMonthPage({ bill }){
     return(
         <main>
             <h1>Bills</h1>

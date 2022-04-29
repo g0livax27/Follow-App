@@ -6,7 +6,7 @@ import { Navbar } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from '../HomePage/HomePage';
+import MainPage from '../MainPage/MainPage';
 import BillsPage from '../BillsPage/BillsPage';
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
   return(
     <main className="App">
       <Routes>
-        <Route path='/expenses' element={<HomePage/>}/>
+        <Route path='/expenses' element={<MainPage/>}/>
         <Route path='/bills' element={<BillsPage bill={bills}/>}/>
       </Routes>
     </main>

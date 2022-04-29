@@ -1,5 +1,5 @@
 // Dependencies \\
-const Bill = require('../../models/bill.js');
+const Bill = require('../../models/Expense.js');
 module.exports = {index, Delete, update, create, edit, show};
 
 
