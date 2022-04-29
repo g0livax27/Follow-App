@@ -11,7 +11,7 @@ import BillsPage from '../BillsPage/BillsPage';
 
 function App() {
   const [ user, setUser ] = useState(null);
-  const [ bills, setBills ] = useState([]);
+  const [ expenses, setExpenses ] = useState([]);
 
 
   useEffect(() => {
@@ -29,8 +29,10 @@ function App() {
   return(
     <main className="App">
       <Routes>
-        <Route path='/expenses' element={<MainPage/>}/>
-        <Route path='/bills' element={<BillsPage bill={bills}/>}/>
+        <Route path='/' element={<MainPage/>}/>
+        <Route path='/lists' element={<ListsPage/>}></Route>
+        <Route path='/bills' element={<BillsPage bill={expenses}/>}/>
+        <Route path='/wishlists' elemetn={<WishListsPage item={expenses}/>}></Route>
       </Routes>
     </main>
   )
