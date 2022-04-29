@@ -1,13 +1,29 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
-export default function BillsPage({ expenses }){
+export default function BillsPage(){
+    const { month } = useParams();
+    const [bills, setBills] = useState([]);
+    
+    useEffect(() => {
+        (async() => {
+          try{
+            const response = await fetch(`http://localhost:3001/api/expenses/${month}`);
+            const data = await response.json();
+            setBills(data);
+          }catch(err){
+            console.log(err);
+          }
+        })()
+      }, []);
     return(
         <main>
             <h1>Bills</h1>
-            <Link to="/expenses">Back</Link>
+            <Link to="/">Back</Link>
             <table className="table table-striped table-dark">
                 <thead>
                     <tr>
+                        <th>Month</th>
                         <th>Bill</th>
                         <th>Amount</th>
                         <th>Paid?</th>
@@ -16,9 +32,12 @@ export default function BillsPage({ expenses }){
                 </thead>
                 <tbody>
                     {
-                        expenses.map((month) => {
+                        bills.map((month, i) => {
                             return(
-                                <tr>
+                                <tr key={i}>
+                                    <td>
+                                        {month.month}
+                                    </td>
                                     <td>{month.name} <Link to={`/${month._id}/edit`}>Add Note/Edit</Link></td>
                                     <td>${month.amount}</td>
                                     <td>{month.complete ? 'Paid in Full' : 'No, Still Need to Pay'}</td>

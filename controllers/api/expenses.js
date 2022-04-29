@@ -1,7 +1,6 @@
 // Dependencies \\
-const Expenses = require('../../models/Expenses.js');
+const Expenses = require('../../models/Expense.js');
 module.exports = {index, Delete, update, create, edit, show};
-
 
 // Index Route \\
 async function index(req, res) {

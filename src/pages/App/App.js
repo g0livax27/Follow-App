@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {
     (async() => {
       try{
-        const response = await fetch('http://localhost:3001/api/bills');
+        const response = await fetch('http://localhost:3001/api/expenses');
         const data = await response.json();
         setExpenses(data);
       }catch(err){
@@ -32,9 +32,9 @@ function App() {
     <main className="App">
       <Routes>
         <Route path='/' element={<MainPage/>}/>
-        <Route path='/:month' element={<ListsPage/>}></Route>
-        <Route path='/:month/bills' element={<BillsPage bill={expenses}/>}/>
-        <Route path='/:month/wishlists' elemetn={<WishListPage item={expenses}/>}></Route>
+        <Route path='/:month' element={<ListsPage expenses={expenses}/>}></Route>
+        <Route path='/:month/bills' element={<BillsPage expenses={expenses}/>}/>
+        <Route path='/:month/wishlists' element={<WishListPage item={expenses}/>}></Route>
       </Routes>
     </main>
   )
