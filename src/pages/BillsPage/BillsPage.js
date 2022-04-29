@@ -5,14 +5,13 @@ export default function BillsPage({ bill }){
         <main>
             <h1>Bills</h1>
             <Link to="/expenses">Back</Link>
-            <table class="table table-striped table-dark">
+            <table className="table table-striped table-dark">
                 <thead>
                     <tr>
-                        <th>Bill Name</th>
-                        <th>Bill Amount</th>
-                        <th>Is Bill Paid?</th>
-                        <th>Edit Expense</th>
-                        <th>Delete Expense</th>
+                        <th>Bill</th>
+                        <th>Amount</th>
+                        <th>Paid?</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -6,7 +6,7 @@ const wishlistSchema = new mongoose.Schema(
     month: String,
     itemAmount: Number,
     itemName: String,
-    mustHave: Boolean
+    purchased: Boolean
     }
 );
 
