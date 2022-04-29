@@ -5,8 +5,8 @@ import SignUpForm from '../SignUpForm/SignUpForm';
 export default function Header() {
     return(
         <main>
-            <Link to='/sign-up'>Sign Up</Link>
-            <Link to='/login'>Login</Link>
+            <Link to={<SignUpForm/>}>Sign Up</Link>
+            <Link to={<LoginForm/>}>Login</Link>
         </main>
     )
 };
