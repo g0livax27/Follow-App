@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function BillsPage({ bill }){
+export default function BillsPage({ expenses }){
     return(
         <main>
             <h1>Bills</h1>
@@ -16,12 +16,12 @@ export default function BillsPage({ bill }){
                 </thead>
                 <tbody>
                     {
-                        bill.map((month) => {
+                        expenses.map((month) => {
                             return(
                                 <tr>
-                                    <td>{month.billName} <Link to={`/${month._id}/edit`}>Add Note/Edit</Link></td>
-                                    <td>${month.billAmount}</td>
-                                    <td>{month.billPaid ? 'Paid in Full' : 'No, Still Need to Pay'}</td>
+                                    <td>{month.name} <Link to={`/${month._id}/edit`}>Add Note/Edit</Link></td>
+                                    <td>${month.amount}</td>
+                                    <td>{month.complete ? 'Paid in Full' : 'No, Still Need to Pay'}</td>
                                     <td><form action={`/bills/${month._id}?_method=DELETE`} method="POST">
                                         <input type="submit" value={`Delete`}/>
                                     </form></td>

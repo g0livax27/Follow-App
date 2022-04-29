@@ -61,7 +61,7 @@ async function edit( req, res) {
     }
 };
 
-// Show Route \\
+// Show Routes \\
 async function show(req, res) {
     try{
         const { month } = await req.params;
