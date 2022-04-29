@@ -7,7 +7,9 @@ import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainPage from '../MainPage/MainPage';
+import ListsPage from '../ListPage/ListPage';
 import BillsPage from '../BillsPage/BillsPage';
+import WishListPage from '../WishListPage/WishListPage';
 
 function App() {
   const [ user, setUser ] = useState(null);
@@ -19,7 +21,7 @@ function App() {
       try{
         const response = await fetch('http://localhost:3001/api/bills');
         const data = await response.json();
-        setBills(data);
+        setExpenses(data);
       }catch(err){
         console.log(err);
       }
@@ -30,9 +32,9 @@ function App() {
     <main className="App">
       <Routes>
         <Route path='/' element={<MainPage/>}/>
-        <Route path='/lists' element={<ListsPage/>}></Route>
-        <Route path='/bills' element={<BillsPage bill={expenses}/>}/>
-        <Route path='/wishlists' elemetn={<WishListPage item={expenses}/>}></Route>
+        <Route path='/:month' element={<ListsPage/>}></Route>
+        <Route path='/:month/bills' element={<BillsPage bill={expenses}/>}/>
+        <Route path='/:month/wishlists' elemetn={<WishListPage item={expenses}/>}></Route>
       </Routes>
     </main>
   )
