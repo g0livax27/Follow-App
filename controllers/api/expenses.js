@@ -1,12 +1,12 @@
 // Dependencies \\
-const Bill = require('../../models/Expense.js');
+const Expenses = require('../../models/Expenses.js');
 module.exports = {index, Delete, update, create, edit, show};
 
 
 // Index Route \\
 async function index(req, res) {
     try{
-        const months = await Bill.find({});
+        const months = await Expenses.find({});
         res.status(200).json(months);
     }catch(err){
         res.status(400).json(err);
@@ -15,14 +15,14 @@ async function index(req, res) {
 
 // New Routes \\
 // router.get('/new', (req, res) => {
-//     res.render('bills/New')
+//     res.render('Expenses/New')
 // });
 
 // Delete Route \\
 async function Delete(req, res) {
     try{
         const { id } = await req.params;
-        await Bill.findByIdAndDelete(id);
+        await Expenses.findByIdAndDelete(id);
     }catch(err){
         res.status(400).json(err);
     }
@@ -33,8 +33,8 @@ async function update(req, res) {
     try{
         const { id } = await req.params;
         const { body } = await req;
-        const updatedBill = await Bill.findByIdAndUpdate(id, body, { new: true });
-        res.status(200).json(updatedBill);
+        const updatedExpenses = await Expenses.findByIdAndUpdate(id, body, { new: true });
+        res.status(200).json(updatedExpenses);
     }catch(err){
         res.status(400).json(err);
     }
@@ -43,8 +43,8 @@ async function update(req, res) {
 // Create Route \\
 async function create(req, res) {
     try{
-        const createdBill = await Bill.create(req.body);
-        res.status(200).json(createdBill);
+        const createdExpenses = await Expenses.create(req.body);
+        res.status(200).json(createdExpenses);
     }catch(err){
         res.status(400).json(err);
     }
@@ -54,8 +54,8 @@ async function create(req, res) {
 async function edit( req, res) {
     try{
         const { id } = await req.params;
-        const editedBill = await Bill.findById(id);
-        res.status(200).json(editedBill);
+        const editedExpenses = await Expenses.findById(id);
+        res.status(200).json(editedExpenses);
     }catch(err){
         res.status(400).json(err);
     }
@@ -65,7 +65,7 @@ async function edit( req, res) {
 async function show(req, res) {
     try{
         const { month } = await req.params;
-        const months = await Bill.find({month: month});
+        const months = await Expenses.find({month: month});
         res.status(200).json(months);
     }catch(err){
         res.status(400).json(err);
