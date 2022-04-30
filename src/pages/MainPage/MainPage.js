@@ -11,9 +11,17 @@ export default function MainPage(){
             <Link to={<SignUpForm/>}>Sign Up</Link>
             <Link to={<LoginForm/>}>Login</Link>
             <h1>Main Page</h1>
-            <h1>Card 1</h1>
-            <h1>Card 2</h1>
-            <h1>Card 3</h1>
+            <div className='mainCards'>
+                <div className='cardA'>
+                    <img src={require('../../assets/green-arrow.png')}/>
+                </div>
+                <div className='cardB'>
+                    <img src={require('../../assets/green-arrow.png')}/>
+                </div>
+                <div className='cardC'>
+                    <img src={require('../../assets/green-arrow.png')}/>
+                </div>
+            </div>
             <Footer/>
         </main>
     )

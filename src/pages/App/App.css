@@ -29,6 +29,19 @@
   text-align: right;
 }
 
+.mainCards {
+  display: flex;
+  justify-content: center;
+}
+
+.mainCards > .cardA,
+.mainCards > .cardB,
+.mainCards > .cardC {
+  margin: 4px;
+  border: solid orange;
+  border-radius: 7px;
+}
+
 .months {
   display: grid;
   grid-template-columns: 300px 300px 300px 300px;
