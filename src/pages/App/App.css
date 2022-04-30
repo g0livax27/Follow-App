@@ -10,6 +10,25 @@
   pointer-events: none;
 }
 
+.loggedInHeader {
+  display: flex;
+}
+
+.loggedInHeader > img,
+.loggedInHeader > p, 
+.loggedInHeader > button {
+  display: inline;
+}
+
+.loggedInHeader > img {
+  justify-content: left;
+}
+
+.loggedInHeader > p,
+.loggedInHeader > button {
+  text-align: right;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
