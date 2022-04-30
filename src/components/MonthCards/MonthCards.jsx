@@ -17,14 +17,15 @@ export default function MonthCards(){
     ];
     return(
         <main>
-            <ul>
+            <ul style={{listStyle: 'none'}}>
                 {
                     months.map((month, i) => { 
                         return(
                             <li key={i}>
-                                <Link to={`/${month}`}>{month.toUpperCase()}
-                                    <div className='monthCards'>
-                                        
+                                <Link to={`/${month}`}>
+                                    <div class='monthCards'>
+                                        <img src={require(`../../assets/${month}.jpeg`)} alt={month}/>           <div class='container'>
+                                        </div>      
                                     </div>
                                 </Link>
                             </li>
