@@ -16,23 +16,20 @@ export default function MonthCards(){
         'December'
     ];
     return(
-        <main>
-            <ul style={{listStyle: 'none'}}>
-                {
-                    months.map((month, i) => { 
-                        return(
-                            <li key={i}>
-                                <Link to={`/${month}`}>
-                                    <div class='monthCards'>
-                                        <img src={require(`../../assets/${month}.jpeg`)} alt={month}/>           <div class='container'>
-                                        </div>      
-                                    </div>
-                                </Link>
-                            </li>
-                        )
-                    })
-                }
-            </ul>
+        <main className='months'>
+            {
+                months.map((month, i) => { 
+                    return(
+                        <div key={i} className='monthCards'>
+                            <Link to={`/${month}`}>
+                                <div>
+                                    <img src={require(`../../assets/${month}.jpeg`)} alt={month} height='100px' width='100%'/>     
+                                </div>
+                            </Link>
+                        </div>
+                    )
+                })
+            }
         </main>
     )
 };
