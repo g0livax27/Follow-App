@@ -26,6 +26,7 @@ export default function MonthCards(){
                                     <img src={require(`../../assets/${month}.jpeg`)} alt={month} height='100px' width='100%'/>     
                                 </div>
                             </Link>
+                            <img src={require('../../assets/green-arrow.png')}/>
                             <button>View Expenses</button>
                         </div>
                     )
