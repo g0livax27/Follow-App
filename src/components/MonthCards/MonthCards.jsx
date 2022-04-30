@@ -18,7 +18,7 @@ export default function MonthCards(){
     return(
         <main className='months'>
             {
-                months.map((month, i) => { 
+                months.map((month, i) => {
                     return(
                         <div key={i} className='monthCards'>
                             <Link to={`/${month}`}>
@@ -26,6 +26,7 @@ export default function MonthCards(){
                                     <img src={require(`../../assets/${month}.jpeg`)} alt={month} height='100px' width='100%'/>     
                                 </div>
                             </Link>
+                            <button>View Expenses</button>
                         </div>
                     )
                 })

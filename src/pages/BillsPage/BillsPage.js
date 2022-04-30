@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import LoggedInHeader from '../../components/LoggedInHeader/LoggedInHeader';
+import BackButton from '../../components/BackButton/BackButton';
 import Footer from '../../components/Footer/Footer';
 
 export default function BillsPage(){
@@ -22,7 +23,7 @@ export default function BillsPage(){
         <main>
             <LoggedInHeader/>
             <h1>Bills</h1>
-            <Link to="/">Back</Link>
+            <BackButton/>
             <table className="table table-striped table-dark">
                 <thead>
                     <tr>
