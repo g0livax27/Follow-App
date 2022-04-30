@@ -10,12 +10,18 @@ export default function ListPage(){
             <LoggedInHeader/>
             <h1>List Page</h1>
             <BackButton/>
-            <Link to={`/${month}/bills`}>
-                Bills
-            </Link>
-            <Link to={`/${month}/wishlists`}>
-                Wish List
-            </Link>
+            <div className='lists'>
+                <div className='billsCard'>
+                    <Link to={`/${month}/bills`}>
+                        Bills
+                    </Link>
+                </div>
+                <div className='wishCard'>
+                    <Link to={`/${month}/wishlists`}>
+                        Wish List
+                    </Link>
+                </div>
+            </div>
             <Footer/>
         </main>
     )
