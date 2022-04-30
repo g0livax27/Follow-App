@@ -7,7 +7,6 @@ import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainPage from '../MainPage/MainPage';
-import AuthPage from '../AuthPage/AuthPage';
 import MonthsPage from '../MonthsPage/MonthsPage';
 import ListsPage from '../ListPage/ListPage';
 import BillsPage from '../BillsPage/BillsPage';
@@ -34,10 +33,10 @@ function App(){
     <main className="App">
       <Routes>
         <Route path='/' element={<MainPage/>}/>
-        {/* <Route path='/' element={<AuthPage/>}/> */}
-        <Route path='/:month' element={<ListsPage expenses={expenses}/>}></Route>
+        <Route path='/expenses' element={<MonthsPage/>}/>
+        <Route path='/:month' element={<ListsPage expenses={expenses}/>}/>
         <Route path='/:month/bills' element={<BillsPage expenses={expenses}/>}/>
-        <Route path='/:month/wishlists' element={<WishListPage item={expenses}/>}></Route>
+        <Route path='/:month/wishlists' element={<WishListPage item={expenses}/>}/>
       </Routes>
     </main>
   )

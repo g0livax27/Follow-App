@@ -1,38 +1,15 @@
-// import { Link } from 'react-router-dom';
-// import Footer from '../../components/Footer/Footer';
+import { Link } from 'react-router-dom';
+import LoggedInHeader from '../../components/LoggedInHeader/LoggedInHeader';
+import Footer from '../../components/Footer/Footer';
+import MonthCards from '../../components/MonthCards/MonthCards';
 
-// export default function MonthsPage({ bill }){
-//     return(
-//         <main>
-//             <h1>Bills</h1>
-//             <Link to="/expenses">Back</Link>
-//             <table className="table table-striped table-dark">
-//                 <thead>
-//                     <tr>
-//                         <th>Test</th>
-//                         <th>Amount</th>
-//                         <th>Paid?</th>
-//                         <th>Delete</th>
-//                     </tr>
-//                 </thead>
-//                 <tbody>
-//                     {
-//                         bill.map((month) => {
-//                             return(
-//                                 <tr>
-//                                     <td>{month.billName} <Link to={`/${month._id}/edit`}>Add Note/Edit</Link></td>
-//                                     <td>${month.billAmount}</td>
-//                                     <td>{month.billPaid ? 'Paid in Full' : 'No, Still Need to Pay'}</td>
-//                                     <td><form action={`/bills/${month._id}?_method=DELETE`} method="POST">
-//                                         <input type="submit" value={`Delete`}/>
-//                                     </form></td>
-//                                 </tr>
-//                             )
-//                         })
-//                     }
-//                 </tbody>
-//             </table> 
-//             <Footer/>
-//         </main>
-//     )
-// };
+export default function MonthsPage({ bill }){
+    return(
+        <main>
+            <LoggedInHeader/>
+            <Link to="/">Back</Link>
+            <MonthCards/>
+            <Footer/>
+        </main>
+    )
+};

@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import LoggedInHeader from '../../components/LoggedInHeader/LoggedInHeader';
 import Footer from '../../components/Footer/Footer';
 
 export default function BillsPage(){
@@ -19,6 +20,7 @@ export default function BillsPage(){
       }, []);
     return(
         <main>
+            <LoggedInHeader/>
             <h1>Bills</h1>
             <Link to="/">Back</Link>
             <table className="table table-striped table-dark">

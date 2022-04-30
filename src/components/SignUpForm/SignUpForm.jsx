@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
+import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 export default class SignUpForm extends Component{
@@ -33,6 +34,7 @@ export default class SignUpForm extends Component{
         const disable = this.state.password !== this.state.confirm;
         return(
           <div>
+            <Header/>
             <div className="form-container">
               <form autoComplete="off" onSubmit={this.handleSubmit}>
                 <label>Name</label>

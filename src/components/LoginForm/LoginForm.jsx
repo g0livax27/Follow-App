@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as userService from '../../utilities/users-service';
+import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 
@@ -28,6 +29,7 @@ export default function LoginForm ({ setUser }) {
 
     return (
         <div>
+            <Header/>
             <div className="form-container">
             <form autoComplete="off" onSubmit={handleSubmit}>
                 <label>Email</label>
