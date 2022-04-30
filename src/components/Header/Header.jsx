@@ -1,7 +1,9 @@
 export default function Header() {
     return(
         <main>
-            <p>Logo</p>
+            <div className='headerLogo'>
+                <img src={require(`../../assets/followthemoney.png`)} alt='follow-app'/>     
+            </div>
         </main>
     )
 };
