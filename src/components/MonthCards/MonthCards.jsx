@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 
 export default function MonthCards(){
     const months = [
@@ -32,6 +33,7 @@ export default function MonthCards(){
                     })
                 }
             </ul>
+            <Footer/>
         </main>
     )
 };

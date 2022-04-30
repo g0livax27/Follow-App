@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 
-export default function ListPage() {
+export default function ListPage(){
     const { month } = useParams();
     return(
         <main>
@@ -11,6 +12,7 @@ export default function ListPage() {
             <Link to={`/${month}/wishlists`}>
                 Wish List
             </Link>
+            <Footer/>
         </main>
     )
 };

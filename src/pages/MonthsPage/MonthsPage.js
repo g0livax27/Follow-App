@@ -1,4 +1,5 @@
 // import { Link } from 'react-router-dom';
+// import Footer from '../Footer/Footer';
 
 // export default function MonthsPage({ bill }){
 //     return(
@@ -30,8 +31,8 @@
 //                         })
 //                     }
 //                 </tbody>
-//             </table>   
+//             </table> 
+//             <Footer/>
 //         </main>
-
 //     )
 // };

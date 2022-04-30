@@ -1,7 +1,8 @@
 import { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
+import Footer from '../Footer/Footer';
 
-export default class SignUpForm extends Component {
+export default class SignUpForm extends Component{
     state = {
         name: '',
         email: '',
@@ -30,7 +31,7 @@ export default class SignUpForm extends Component {
 
     render() {
         const disable = this.state.password !== this.state.confirm;
-        return (
+        return(
           <div>
             <div className="form-container">
               <form autoComplete="off" onSubmit={this.handleSubmit}>
@@ -46,6 +47,7 @@ export default class SignUpForm extends Component {
               </form>
             </div>
             <h1 className="error-message">&nbsp;{this.state.error}</h1>
+            <Footer/>
           </div>
         );
       }

@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import Footer from '../Footer/Footer';
 
 export default function BillsPage(){
     const { month } = useParams();
@@ -48,8 +49,8 @@ export default function BillsPage(){
                         })
                     }
                 </tbody>
-            </table>   
+            </table>
+            <Footer/>
         </main>
-
     )
 };

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as userService from '../../utilities/users-service';
+import Footer from '../Footer/Footer';
 
 
 export default function LoginForm ({ setUser }) {
@@ -37,6 +38,7 @@ export default function LoginForm ({ setUser }) {
             </form>
             </div>
             <h1 className="error-message">&nbsp;{error}</h1>
+            <Footer/>
         </div>
     )  
 };
