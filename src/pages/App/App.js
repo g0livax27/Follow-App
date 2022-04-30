@@ -7,11 +7,13 @@ import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainPage from '../MainPage/MainPage';
+import AuthPage from '../AuthPage/AuthPage';
+import MonthsPage from '../MonthsPage/MonthsPage';
 import ListsPage from '../ListPage/ListPage';
 import BillsPage from '../BillsPage/BillsPage';
 import WishListPage from '../WishListPage/WishListPage';
 
-function App() {
+function App(){
   const [ user, setUser ] = useState(null);
   const [ expenses, setExpenses ] = useState([]);
 
@@ -32,6 +34,7 @@ function App() {
     <main className="App">
       <Routes>
         <Route path='/' element={<MainPage/>}/>
+        {/* <Route path='/' element={<AuthPage/>}/> */}
         <Route path='/:month' element={<ListsPage expenses={expenses}/>}></Route>
         <Route path='/:month/bills' element={<BillsPage expenses={expenses}/>}/>
         <Route path='/:month/wishlists' element={<WishListPage item={expenses}/>}></Route>

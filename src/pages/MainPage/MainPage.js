@@ -1,10 +1,20 @@
-import Button from "../../components/Button/Button";
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import { Link } from 'react-router-dom';
+import SignUpForm from '../../components/SignUpForm/SignUpForm';
+import LoginForm from '../../components/LoginForm/LoginForm';
 
 export default function MainPage(){
     return(
         <main>
-            <h1>Months Page</h1>
-            <Button/>
+            <Header/>
+            <Link to={<SignUpForm/>}>Sign Up</Link>
+            <Link to={<LoginForm/>}>Login</Link>
+            <h1>Main Page</h1>
+            <h1>Card 1</h1>
+            <h1>Card 2</h1>
+            <h1>Card 3</h1>
+            <Footer/>
         </main>
     )
 };
