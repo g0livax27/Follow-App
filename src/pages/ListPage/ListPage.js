@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import Footer from '../Footer/Footer';
+import Footer from '../../components/Footer/Footer';
 
 export default function ListPage(){
     const { month } = useParams();

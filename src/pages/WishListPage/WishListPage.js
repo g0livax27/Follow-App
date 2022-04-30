@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Footer from '../Footer/Footer';
+import Footer from '../../components/Footer/Footer';
 
 export default function WishListPage(){
     const { month } = useParams();
