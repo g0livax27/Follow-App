@@ -4,15 +4,10 @@
   margin: 0 auto !important;
 }
 
-.App-logo {
+.headerLogo {
   height: 40vmin;
+  width: 100%;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
