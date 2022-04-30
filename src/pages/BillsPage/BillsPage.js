@@ -23,7 +23,6 @@ export default function BillsPage(){
             <table className="table table-striped table-dark">
                 <thead>
                     <tr>
-                        <th>Month</th>
                         <th>Bill</th>
                         <th>Amount</th>
                         <th>Paid?</th>
