@@ -22,8 +22,8 @@ export default function WishListPage(){
     return(
         <main>
             <LoggedInHeader/>
-            <h1>Wish List</h1>
             <BackButton/>
+            <h1>Wish List</h1>
             <table className="table table-striped table-dark">
                 <thead>
                     <tr>

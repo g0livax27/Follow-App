@@ -8,7 +8,6 @@ export default function ListPage(){
     return(
         <main>
             <LoggedInHeader/>
-            <h1>List Page</h1>
             <BackButton/>
             <div className='lists'>
                 <div className='billsCard'>

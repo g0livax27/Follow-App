@@ -8,7 +8,7 @@
   height: 30vmin;
   width: 100%;
   pointer-events: none;
-  background-color: black;
+  background: black;
 }
 
 .headerLogo > .headerBtn {
@@ -26,6 +26,11 @@
 
 .loggedInHeaderChild {
   display: inline;
+}
+
+.backBtn {
+  display: flex;
+  background: black;
 }
 
 .mainCards {
@@ -47,7 +52,7 @@
   display: grid;
   grid-template-columns: 300px 300px 300px 300px;
   grid-gap: 20px 20px;
-  margin: 0 auto;
+  margin: 30px;
   justify-content: center;
   box-sizing: border-box;
 }
@@ -80,13 +85,48 @@ img {
   display: grid;
   grid-template-columns: 300px 300px;
   grid-gap: 20px 20px;
-  margin: 0 auto;
+  margin: auto;
+  margin-top: 30px;
   justify-content: center;
   height: 400px;
   width: 300px;;
 }
 
+table {
+  display: flex;
+  background: rgba(221, 213, 213, 0.40);
+  width: 1000px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+th {
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  background: #1C78BB;
+  width: 100%;
+  justify-content: space-between;
+}
+
+td {
+  text-align: center;
+  text-shadow: 1px 1px 1px #1C78BB
+}
+
 .footer {
   display: grid;
   justify-content: center;
+  position: float;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #1C78BB;
+}
+
+.iconLinks {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
 }

@@ -22,8 +22,8 @@ export default function BillsPage(){
     return(
         <main>
             <LoggedInHeader/>
-            <h1>Bills</h1>
             <BackButton/>
+            <h1>Bills</h1>
             <table className="table table-striped table-dark">
                 <thead>
                     <tr>

@@ -6,7 +6,7 @@ export default function BackButton(){
         navigate(-1)
     }
     return(
-        <main>
+        <main className='backBtn'>
             <button onClick={handleClick}>Back</button>
         </main>
     )
