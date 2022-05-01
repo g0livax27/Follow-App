@@ -1,8 +1,12 @@
+import { Link } from 'react-router-dom';
+
 export default function LoggedInHeader() {
     return(
         <main>
             <div className='loggedInHeader'>
-                <img src={require(`../../assets/followlogo-nowords.png`)} alt='follow-app logo'/>
+                <Link to='/expenses'>
+                    <img src={require(`../../assets/followlogo-nowords.png`)} alt='follow-app logo'/>
+                </Link>
                 <div className='loggedInHeaderChild'>
                     <p>Greetings, user's name</p>
                     <button>Log Out</button>

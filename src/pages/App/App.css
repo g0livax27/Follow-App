@@ -5,9 +5,17 @@
 }
 
 .headerLogo {
-  height: 40vmin;
+  height: 30vmin;
   width: 100%;
   pointer-events: none;
+  background-color: black;
+}
+
+.headerLogo > .headerBtn {
+  display: flex;
+  justify-content: left;
+  margin: 0;
+  border: 0;
 }
 
 .loggedInHeader {
@@ -28,7 +36,8 @@
 .mainCards > .cardA,
 .mainCards > .cardB,
 .mainCards > .cardC {
-  margin: 4px;
+  margin: 30px;
+  padding: 20px;
   border: solid orange;
   border-radius: 7px;
   inline-size: 400px;
