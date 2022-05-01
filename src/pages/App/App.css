@@ -40,6 +40,7 @@
   margin: 4px;
   border: solid orange;
   border-radius: 7px;
+  inline-size: 400px;
 }
 
 .months {
@@ -80,4 +81,9 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
+}
+
+.footer {
+  display: grid;
+  justify-content: center;
 }
