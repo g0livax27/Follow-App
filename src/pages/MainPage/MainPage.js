@@ -14,17 +14,18 @@ export default function MainPage(){
             <div className='mainCards'>
                 <div className='cardA'>
                     <img src={require('../../assets/green-arrow.png')}/>
-                    <h4>TRACK</h4>
-                    <p>Log your expenditures and keep them organized.</p>
+                    
+                    <h4>PLAN</h4>
+                    <p></p>
                 </div>
                 <div className='cardB'>
                     <img src={require('../../assets/green-arrow.png')}/>
-                    <h4>BUDGET</h4>
-                    <p>Plan for </p>
+                    <h4>TRACK</h4>
+                    <p>Log your expenditures and keep them organized.</p>
                 </div>
                 <div className='cardC'>
                     <img src={require('../../assets/green-arrow.png')}/>
-                    <h4>SAVE</h4>
+                    <h4>CELEBRATE</h4>
                     <p></p>
                 </div>
             </div>

@@ -12,21 +12,12 @@
 
 .loggedInHeader {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
-.loggedInHeader > img,
-.loggedInHeader > p, 
-.loggedInHeader > button {
+.loggedInHeaderChild {
   display: inline;
-}
-
-.loggedInHeader > img {
-  justify-content: left;
-}
-
-.loggedInHeader > p,
-.loggedInHeader > button {
-  text-align: right;
 }
 
 .mainCards {
