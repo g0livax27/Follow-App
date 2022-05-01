@@ -10,13 +10,11 @@ export default function MainPage(){
             <Header/>
             <Link to={<SignUpForm/>}>Sign Up</Link>
             <Link to={<LoginForm/>}>Login</Link>
-            <h1>Main Page</h1>
             <div className='mainCards'>
                 <div className='cardA'>
                     <img src={require('../../assets/green-arrow.png')}/>
-                    
                     <h4>PLAN</h4>
-                    <p></p>
+                    <p>Map out your monthly spending ahead of time.</p>
                 </div>
                 <div className='cardB'>
                     <img src={require('../../assets/green-arrow.png')}/>
@@ -25,8 +23,8 @@ export default function MainPage(){
                 </div>
                 <div className='cardC'>
                     <img src={require('../../assets/green-arrow.png')}/>
-                    <h4>CELEBRATE</h4>
-                    <p></p>
+                    <h4>SAVE</h4>
+                    <p>Set aside extra money for when you need it.</p>
                 </div>
             </div>
             <Footer/>

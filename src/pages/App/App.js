@@ -16,7 +16,6 @@ function App(){
   const [ user, setUser ] = useState(null);
   const [ expenses, setExpenses ] = useState([]);
 
-
   useEffect(() => {
     (async() => {
       try{
