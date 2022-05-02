@@ -50,11 +50,13 @@
 
 .months {
   display: grid;
+  /* grid-template-columns: repeat(4, 1fr); */
   grid-template-columns: 300px 300px 300px 300px;
   grid-gap: 20px 20px;
   margin: 30px;
   justify-content: center;
   box-sizing: border-box;
+  border: solid red;
 }
 
 .monthCards,
