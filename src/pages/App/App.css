@@ -14,6 +14,7 @@
 .headerLogo > .headerBtn {
   display: flex;
   justify-content: left;
+  background: black;
   margin: 0;
   border: 0;
 }
@@ -50,8 +51,9 @@
 
 .months {
   display: grid;
-  /* grid-template-columns: repeat(4, 1fr); */
-  grid-template-columns: 300px 300px 300px 300px;
+  grid-template-columns: 1fr, 1fr, 1fr, 1fr;
+  grid-template-rows: 1fr, 1fr;
+  /* grid-template-columns: 300px 300px 300px 300px; */
   grid-gap: 20px 20px;
   margin: 30px;
   justify-content: center;
