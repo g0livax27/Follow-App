@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 export default function MonthCards(){
@@ -19,6 +20,10 @@ export default function MonthCards(){
         <main className='months'>
             {
                 months.map((month, i) => {
+                    // const navigate = useNavigate();
+                    // const handleClick = () => {
+                    //     navigate(`/${month}`)
+                    // }
                     return(
                         <div key={i} className='monthCards'>
                             <Link to={`/${month}`}>
