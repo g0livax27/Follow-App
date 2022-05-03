@@ -31,6 +31,7 @@ export default function WishListTable(){
                 {
                     items.map((month, i) => {
                         return(
+                            month.list === "Wish List" &&
                             <tr key={i}>
                                 <td>
                                     {month.month}

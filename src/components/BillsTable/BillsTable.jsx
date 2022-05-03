@@ -31,6 +31,7 @@ export default function BillsTable(){
                 {
                     bills.map((month, i) => {
                         return(
+                            month.list === "Bills" &&
                             <tr key={i}>
                                 <td>
                                     {month.month}
