@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import AuthPage from '../../pages/AuthPage/AuthPage';
 
 export default function Header() {

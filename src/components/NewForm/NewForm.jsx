@@ -1,5 +1,3 @@
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
 import { useState, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
