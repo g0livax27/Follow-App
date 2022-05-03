@@ -4,17 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 export default function BillsTable(){
     const { month } = useParams();
     const [bills, setBills] = useState([]);
-    const [id, setId] = useState("");
-
-    const handleDelete = () => {
-        try{
-            // fetch(`http://localhost:3001/api/expenses/${evt.target._id}`, {method: 'DELETE'});
-            console.log('hello world')
-        }catch(err){
-            console.log(err);
-        }finally{
-        }
-    };
+    const [refresh, setRefresh] = useState(false);
 
     useEffect(() => {
         (async() => {
@@ -26,7 +16,7 @@ export default function BillsTable(){
             console.log(err);
         }
         })()
-    }, []);
+    }, [refresh]);
 
     return(
         <table className="table table-striped table-dark">
@@ -51,7 +41,17 @@ export default function BillsTable(){
                                 <td>${month.amount}</td>
                                 <td>{month.complete ? 'Paid in Full' : 'No, Still Need to Pay'}</td>
                                 <td>
-                                  <button onClick={handleDelete}>Delete</button>
+                                    <button onClick={(evt) => {
+                                        try{
+                                            fetch(`http://localhost:3001/api/expenses/${month._id}`, {method: 'DELETE'});
+                                        }catch(err){
+                                            console.log(err);
+                                        }finally{
+                                            setRefresh(!refresh);
+                                        }
+                                    }}>
+                                      Delete
+                                    </button>
                                 </td>
                             </tr>
                         )

@@ -116,13 +116,13 @@ input:focus {
 button, a.button {
   margin: 1vmin;
   padding: 1vmin;
-  color: var(--white);
-  background-color: var(--blue);
+  color: var(--black);
+  background-color: var(--white);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  border: .1vmin solid var(--white);
+  border: .4vmin solid var(--blue);
   border-radius: .5vmin;
   outline: none;
   cursor: pointer;
