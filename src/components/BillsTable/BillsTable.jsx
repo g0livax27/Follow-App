@@ -35,10 +35,7 @@ export default function BillsTable(){
                             return(
                                 month.list === "Bills" &&
                                 <tr key={i}>
-                                    <td>
-                                        {month.month}
-                                    </td>
-                                    <td>{month.name} <Link to={`/${month._id}/edit`}>Add Note/Edit</Link></td>
+                                    <td>{month.name}<br/> <Link to={`/${month._id}/edit`}>Add Note/Edit</Link></td>
                                     <td>${month.amount}</td>
                                     <td>{month.complete ? 'Paid in Full' : 'No, Still Need to Pay'}</td>
                                     <td>
