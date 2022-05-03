@@ -5,7 +5,7 @@ import Footer from '../../components/Footer/Footer';
 export default function MainPage(){
     return(
         <main>
-            <Header/>
+            {/* <Header/> */}
             <div className='mainCards'>
                 <div className='cardA'>
                     <img src={require('../../assets/green-arrow.png')}/>
@@ -23,7 +23,7 @@ export default function MainPage(){
                     <p>Set aside extra money for when you need it.</p>
                 </div>
             </div>
-            <Footer/>
+            {/* <Footer/> */}
         </main>
     )
 };

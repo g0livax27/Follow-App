@@ -109,7 +109,7 @@ input {
   outline: none;
 }
 
-input:focus {
+input {
   border-color: var(--blue);
 }
 

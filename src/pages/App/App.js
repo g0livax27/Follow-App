@@ -12,6 +12,7 @@ import LoggedInHeader from '../../components/LoggedInHeader/LoggedInHeader';
 import Footer from '../../components/Footer/Footer';
 import MainPage from '../MainPage/MainPage';
 import MonthsPage from '../MonthsPage/MonthsPage';
+import NewPage from '../NewPage/NewPage';
 import ListsPage from '../ListPage/ListPage';
 import BillsPage from '../BillsPage/BillsPage';
 import WishListPage from '../WishListPage/WishListPage';
@@ -38,6 +39,7 @@ function App(){
       <Routes>
         <Route path='/' element={<MainPage/>}/>
         <Route path='/expenses' element={<MonthsPage/>}/>
+        <Route path='/expenses/:month/new' element={<NewPage/>}/>
         <Route path='/:month' element={<ListsPage expenses={expenses}/>}/>
         <Route path='/:month/bills' element={<BillsPage expenses={expenses}/>}/>
         <Route path='/:month/wishlists' element={<WishListPage item={expenses}/>}/>

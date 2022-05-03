@@ -19,45 +19,47 @@ export default function BillsTable(){
     }, [refresh]);
 
     return(
-        <table className="billTable">
-            <thead>
-                <tr>
-                    <th>Bill</th>
-                    <th>Amount</th>
-                    <th>Paid?</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    bills.map((month, i) => {
-                        return(
-                            month.list === "Bills" &&
-                            <tr key={i}>
-                                <td>
-                                    {month.month}
-                                </td>
-                                <td>{month.name} <Link to={`/${month._id}/edit`}>Add Note/Edit</Link></td>
-                                <td>${month.amount}</td>
-                                <td>{month.complete ? 'Paid in Full' : 'No, Still Need to Pay'}</td>
-                                <td>
-                                    <button onClick={(evt) => {
-                                        try{
-                                            fetch(`http://localhost:3001/api/expenses/${month._id}`, {method: 'DELETE'});
-                                        }catch(err){
-                                            console.log(err);
-                                        }finally{
-                                            setRefresh(!refresh);
-                                        }
-                                    }}>
-                                      Delete
-                                    </button>
-                                </td>
-                            </tr>
-                        )
-                    })
-                }
-            </tbody>
-        </table>
+        <main>
+            <table className="billTable">
+                <thead>
+                    <tr>
+                        <th>Bill</th>
+                        <th>Amount</th>
+                        <th>Paid?</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        bills.map((month, i) => {
+                            return(
+                                month.list === "Bills" &&
+                                <tr key={i}>
+                                    <td>
+                                        {month.month}
+                                    </td>
+                                    <td>{month.name} <Link to={`/${month._id}/edit`}>Add Note/Edit</Link></td>
+                                    <td>${month.amount}</td>
+                                    <td>{month.complete ? 'Paid in Full' : 'No, Still Need to Pay'}</td>
+                                    <td>
+                                        <button onClick={(evt) => {
+                                            try{
+                                                fetch(`http://localhost:3001/api/expenses/${month._id}`, {method: 'DELETE'});
+                                            }catch(err){
+                                                console.log(err);
+                                            }finally{
+                                                setRefresh(!refresh);
+                                            }
+                                        }}>
+                                        Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            )
+                        })
+                    }
+                </tbody>
+            </table>
+        </main>
     )
 };
