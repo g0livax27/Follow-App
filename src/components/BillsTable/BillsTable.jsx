@@ -19,7 +19,7 @@ export default function BillsTable(){
     }, [refresh]);
 
     return(
-        <table className="table table-striped table-dark">
+        <table className="billTable">
             <thead>
                 <tr>
                     <th>Bill</th>

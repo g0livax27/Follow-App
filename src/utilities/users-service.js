@@ -42,9 +42,3 @@ export function getUser(){
 export function logout(){
     localStorage.removeItem('token')
 };
-
-// checkToken
-export function checkToken(){
-    return usersAPI.checkToken()
-           .then(dateStr => new Date(dateStr))
-};

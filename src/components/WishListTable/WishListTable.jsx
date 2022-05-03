@@ -19,7 +19,7 @@ export default function WishListTable(){
     }, [refresh]);
 
     return(
-        <table className="table table-striped table-dark">
+        <table className="wishListTable">
             <thead>
                 <tr>
                     <th>Wish List Item</th>

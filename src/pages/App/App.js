@@ -6,6 +6,9 @@ import { Navbar } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from '../../components/Header/Header';
+import LoggedInHeader from '../../components/LoggedInHeader/LoggedInHeader';
+import Footer from '../../components/Footer/Footer';
 import MainPage from '../MainPage/MainPage';
 import MonthsPage from '../MonthsPage/MonthsPage';
 import ListsPage from '../ListPage/ListPage';
@@ -30,6 +33,7 @@ function App(){
 
   return(
     <main className="App">
+      {/* <Header/> */}
       <Routes>
         <Route path='/' element={<MainPage/>}/>
         <Route path='/expenses' element={<MonthsPage/>}/>
@@ -37,6 +41,7 @@ function App(){
         <Route path='/:month/bills' element={<BillsPage expenses={expenses}/>}/>
         <Route path='/:month/wishlists' element={<WishListPage item={expenses}/>}/>
       </Routes>
+      {/* <Footer/> */}
     </main>
   )
 };
