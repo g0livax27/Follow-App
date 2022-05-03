@@ -4,6 +4,17 @@ import { Link, useParams } from 'react-router-dom';
 export default function BillsTable(){
     const { month } = useParams();
     const [bills, setBills] = useState([]);
+    const [id, setId] = useState("");
+
+    const handleDelete = () => {
+        try{
+            // fetch(`http://localhost:3001/api/expenses/${evt.target._id}`, {method: 'DELETE'});
+            console.log('hello world')
+        }catch(err){
+            console.log(err);
+        }finally{
+        }
+    };
 
     useEffect(() => {
         (async() => {
@@ -39,9 +50,9 @@ export default function BillsTable(){
                                 <td>{month.name} <Link to={`/${month._id}/edit`}>Add Note/Edit</Link></td>
                                 <td>${month.amount}</td>
                                 <td>{month.complete ? 'Paid in Full' : 'No, Still Need to Pay'}</td>
-                                <td><form action={`/bills/${month._id}?_method=DELETE`} method="POST">
-                                    <input type="submit" value={`Delete`}/>
-                                </form></td>
+                                <td>
+                                  <button onClick={handleDelete}>Delete</button>
+                                </td>
                             </tr>
                         )
                     })

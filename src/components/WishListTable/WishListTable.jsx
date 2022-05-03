@@ -39,9 +39,9 @@ export default function WishListTable(){
                                 <td>{month.name} <Link to={`/${month._id}/edit`}>Add Note/Edit</Link></td>
                                 <td>${month.amount}</td>
                                 <td>{month.complete ? 'Paid in Full' : 'No, Still Need to Pay'}</td>
-                                <td><form action={`/wishlist/${month._id}?_method=DELETE`} method="POST">
-                                    <input type="submit" value={`Delete`}/>
-                                </form></td>
+                                <td>
+                                    
+                                </td>
                             </tr>
                         )
                     })
