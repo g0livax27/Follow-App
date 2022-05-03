@@ -1,14 +1,12 @@
 import { useState } from "react";
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import LoginForm from "../../components/LoginForm/LoginForm";
 
 export default function AuthPage({setUser}){
-    const [showSignUp, setShowSignUp] = useState(false)
+    const [showSignUp, setShowSignUp] = useState(true);
+
     return(
         <main>
-            <Header/>
             <h1>Auth/Main Page</h1>
             <button onClick={() => setShowSignUp(!showSignUp) }>{ showSignUp ? 'Log In' : 'Sign Up'}</button>
                 {
@@ -16,7 +14,6 @@ export default function AuthPage({setUser}){
                     <SignUpForm setUser={setUser}/> :
                     <LoginForm setUser={setUser}/>
                 }
-            <Footer/>
         </main>
     )
 };

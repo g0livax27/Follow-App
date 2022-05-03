@@ -11,7 +11,7 @@ module.exports = {
 function checkToken(req, res) {
   console.log('req.user', req.user);
   res.status(200).json(req.exp);
-}
+};
 
 async function login(req, res) {
   try {
@@ -23,7 +23,7 @@ async function login(req, res) {
   } catch {
     res.status(400).json('Bad Credentials');
   }
-}
+};
 
 async function create(req, res) {
   try {
@@ -37,7 +37,7 @@ async function create(req, res) {
   } catch (e) {
     res.status(400).json(e);
   }
-}
+};
 
 
 /*-- Helper Functions --*/
@@ -49,4 +49,4 @@ function createJWT(user) {
     process.env.SECRET,
     { expiresIn: '24h' }
   );
-}
+};

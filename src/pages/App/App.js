@@ -6,6 +6,7 @@ import { Navbar } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { getUser } from '../../utilities/users-service';
 import Header from '../../components/Header/Header';
 import LoggedInHeader from '../../components/LoggedInHeader/LoggedInHeader';
 import Footer from '../../components/Footer/Footer';
@@ -16,7 +17,7 @@ import BillsPage from '../BillsPage/BillsPage';
 import WishListPage from '../WishListPage/WishListPage';
 
 function App(){
-  const [ user, setUser ] = useState(null);
+  const [ user, setUser ] = useState(getUser());
   const [ expenses, setExpenses ] = useState([]);
 
   useEffect(() => {
@@ -33,7 +34,7 @@ function App(){
 
   return(
     <main className="App">
-      {/* <Header/> */}
+      {/* <Header user={user} setUser{setUser}/> */}
       <Routes>
         <Route path='/' element={<MainPage/>}/>
         <Route path='/expenses' element={<MonthsPage/>}/>
