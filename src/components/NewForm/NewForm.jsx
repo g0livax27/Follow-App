@@ -7,31 +7,35 @@ export default function CreateForm(){
     const amount = useRef(null);
     const complete = useRef(null);
     const addNote = useRef(null);
-    const handleSubmit = (evt) => {
-        evt.preventDefault();
-        try{
-            fetch('http://localhost:3001/api/expenses', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                    name: name.current.value,
-                    amount: amount.current.value,
-                    complete: complete.current.value,
-                    note: addNote.current.value
-                })
-            });
-        }catch(err){
-            console.log(err);
-        }
-    };
+
+    // const handleSubmit = (evt) => {
+    //     evt.preventDefault();
+    //     try{
+    //         fetch('http://localhost:3001/api/expenses', {
+    //             method: 'POST',
+    //             headers: {'Content-Type': 'application/json'},
+    //             body: JSON.stringify({
+    //                 name: name.current.value,
+    //                 amount: amount.current.value,
+    //                 complete: complete.current.value,
+    //                 note: addNote.current.value
+    //             })
+    //         });
+    //     }catch(err){
+    //         console.log(err);
+    //     }
+    // };
 
     return(
         <main>
-            <form class='newExpense' method="POST">
+            <form className='newExpense' method="POST">
                 <fieldset>
                     Name: <input name='name' ref={name} type='text'/>
                     Amount: <input name='amount' ref={amount} type='text'/>
-                    Paid? <input name='complete' ref={complete} type='checkbox'/>
+                    Paid? <input name='complete' id='check' type='checkbox'
+                    onChange={() => {
+                        console.log(document.getElementById('check').checked);
+                    }}/>
                     <select>
                         <option>Bills</option>
                         <option>Wish List</option>
