@@ -1,6 +1,7 @@
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { useState, useRef } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function CreateForm(){
     const name = useRef(null);
@@ -9,14 +10,17 @@ export default function CreateForm(){
     const list = useRef('Bills');
 
     const [ complete, setComplete ] = useState(false);
+    const { month } = useParams();
+    const navigate = useNavigate();
 
     const handleSubmit = async (evt) => {
         evt.preventDefault();
         try{
-            await fetch('http://localhost:3001/api/expenses', {
+            const response = await fetch('http://localhost:3001/api/expenses', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
+                    month: month,
                     name: name.current.value,
                     amount: amount.current.value,
                     complete: complete,
@@ -24,6 +28,10 @@ export default function CreateForm(){
                     list: list.current.value
                 }),
             });
+            if(response.status === 200){
+                console.log('Expense Created');
+                navigate(`/${month}/${(list.current.value).split(' ').join('').toLowerCase()}`);
+            };
         }catch(err){
             console.log(err);
         }
@@ -31,7 +39,7 @@ export default function CreateForm(){
 
     return(
         <main>
-            <form className='newExpense' method="POST">
+            <form className='newExpense' onSubmit={handleSubmit}>
                 <fieldset>
                     Name: <input name='name' ref={name} type='text'/>
                     Amount: <input name='amount' ref={amount} type='text'/>

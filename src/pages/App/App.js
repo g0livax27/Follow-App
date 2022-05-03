@@ -42,7 +42,7 @@ function App(){
         <Route path='/expenses/:month/new' element={<NewPage/>}/>
         <Route path='/:month' element={<ListsPage expenses={expenses}/>}/>
         <Route path='/:month/bills' element={<BillsPage expenses={expenses}/>}/>
-        <Route path='/:month/wishlists' element={<WishListPage item={expenses}/>}/>
+        <Route path='/:month/wishlist' element={<WishListPage item={expenses}/>}/>
       </Routes>
       {/* <Footer/> */}
     </main>
