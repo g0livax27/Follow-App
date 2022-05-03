@@ -1,30 +1,33 @@
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 
 export default function CreateForm(){
     const name = useRef(null);
     const amount = useRef(null);
-    const complete = useRef(null);
     const addNote = useRef(null);
+    const list = useRef('Bills');
 
-    // const handleSubmit = (evt) => {
-    //     evt.preventDefault();
-    //     try{
-    //         fetch('http://localhost:3001/api/expenses', {
-    //             method: 'POST',
-    //             headers: {'Content-Type': 'application/json'},
-    //             body: JSON.stringify({
-    //                 name: name.current.value,
-    //                 amount: amount.current.value,
-    //                 complete: complete.current.value,
-    //                 note: addNote.current.value
-    //             })
-    //         });
-    //     }catch(err){
-    //         console.log(err);
-    //     }
-    // };
+    const [ complete, setComplete ] = useState(false);
+
+    const handleSubmit = async (evt) => {
+        evt.preventDefault();
+        try{
+            await fetch('http://localhost:3001/api/expenses', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    name: name.current.value,
+                    amount: amount.current.value,
+                    complete: complete,
+                    note: addNote.current.value,
+                    list: list.current.value
+                }),
+            });
+        }catch(err){
+            console.log(err);
+        }
+    };
 
     return(
         <main>
@@ -35,10 +38,16 @@ export default function CreateForm(){
                     Paid? <input name='complete' id='check' type='checkbox'
                     onChange={() => {
                         console.log(document.getElementById('check').checked);
+                        const isTrue = document.getElementById('check').checked
+                        if(isTrue){
+                            setComplete(true);
+                        } else {
+                            setComplete(false);
+                        }
                     }}/>
-                    <select>
-                        <option>Bills</option>
-                        <option>Wish List</option>
+                    <select ref={list}>
+                        <option value='Bills'>Bills</option>
+                        <option value='Wish List'>Wish List</option>
                     </select>
                 </fieldset><br/>
                 <input placeholder='Add Note' ref={addNote} type='textbox'/>
