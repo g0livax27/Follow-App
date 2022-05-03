@@ -51,8 +51,6 @@
 
 .months {
   display: grid;
-  /* grid-template-columns: 1fr, 1fr, 1fr, 1fr;
-  grid-template-rows: 1fr, 1fr; */
   grid-template-columns: 300px 300px 300px 300px;
   grid-gap: 20px 20px;
   margin: 30px;
@@ -93,6 +91,24 @@ img {
   justify-content: center;
   height: 400px;
   width: 300px;;
+}
+
+.create {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.newExpense {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 7px;
+  border: solid orange;
+  height: 400px;
+  max-width: 300px;
+  background-color: white;
+  padding: 8px;
+  align-items: center;
 }
 
 table {

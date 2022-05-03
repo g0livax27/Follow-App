@@ -26,13 +26,13 @@ export default function MonthCards(){
                     // }
                     return(
                         <div key={i} className='monthCards'>
-                            <Link to={`/${month}`}>
-                                <div>
-                                    <img src={require(`../../assets/${month}.jpeg`)} alt={month} height='100px' width='100%'/>     
-                                </div>
-                            </Link>
+                            <div>
+                                <img src={require(`../../assets/${month}.jpeg`)} alt={month} height='100px' width='100%'/>     
+                            </div>
                             <img src={require('../../assets/green-arrow.png')}/>
-                            <button>View Expenses</button>
+                            <Link to={`/${month}`}>
+                                <button>View Expenses</button>
+                            </Link>
                         </div>
                     )
                 })

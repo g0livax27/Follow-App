@@ -36,11 +36,11 @@ export default function CreateForm(){
     };
 
     return(
-        <main>
+        <main className='create'>
             <form className='newExpense' onSubmit={handleSubmit}>
                 <fieldset>
-                    Name: <input name='name' ref={name} type='text'/>
-                    Amount: <input name='amount' ref={amount} type='text'/>
+                    Name: <input name='name' ref={name} type='text'/><br/>
+                    Amount: <input name='amount' ref={amount} type='text'/><br/>
                     Paid? <input name='complete' id='check' type='checkbox'
                     onChange={() => {
                         console.log(document.getElementById('check').checked);
@@ -56,8 +56,10 @@ export default function CreateForm(){
                         <option value='Wish List'>Wish List</option>
                     </select>
                 </fieldset><br/>
-                <input placeholder='Add Note' ref={addNote} type='textbox'/>
-                <input type='submit' value='Add'/>
+                <input placeholder='add note' ref={addNote} type='textbox'/><br/>
+                <button className='btn-sm'>
+                    Add
+                </button>
             </form>
         </main>
     )
