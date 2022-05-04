@@ -23,7 +23,7 @@ export default function ListPage(){
                     </Link>
                 </div>
                 <div className='wishCard'>
-                    <Link to={`/${month}/wishlists`}>
+                    <Link to={`/${month}/wishlist`}>
                         Wish List
                     </Link>
                 </div>

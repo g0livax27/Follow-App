@@ -40,23 +40,23 @@ export default function CreateForm(){
             <form className='newExpense' onSubmit={handleSubmit}>
                 <fieldset>
                     Name: <input name='name' ref={name} type='text'/><br/>
-                    Amount: <input name='amount' ref={amount} type='text'/><br/>
-                    Paid? <input name='complete' id='check' type='checkbox'
-                    onChange={() => {
-                        console.log(document.getElementById('check').checked);
-                        const isTrue = document.getElementById('check').checked
-                        if(isTrue){
-                            setComplete(true);
-                        } else {
-                            setComplete(false);
-                        }
-                    }}/>
+                    Amount: <input name='amount' ref={amount} type='text'/><br/><br/>
+                    Paid? <input className='toggleInput' name='complete' id='paidToggle' type='checkbox'
+                        onChange={() => {
+                            console.log(document.getElementById('check').checked);
+                            const isTrue = document.getElementById('check').checked
+                            if(isTrue){
+                                setComplete(true);
+                            } else {
+                                setComplete(false);
+                            }
+                        }}/>
                     <select ref={list}>
                         <option value='Bills'>Bills</option>
                         <option value='Wish List'>Wish List</option>
                     </select>
                 </fieldset><br/>
-                <input placeholder='add note' ref={addNote} type='textbox'/><br/>
+                <textarea placeholder='add note' ref={addNote} type='textbox'/><br/>
                 <button className='btn-sm'>
                     Add
                 </button>
