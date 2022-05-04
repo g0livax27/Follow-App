@@ -14,11 +14,11 @@
 
 ## Getting Started:
 
-Wireframe using [Miro](https://miro.com/app/board/uXjVO65UKTM=/)
+[Wireframe](https://miro.com/app/board/uXjVO65UKTM=/) using Miro
 
-Trello-Board using [GitHub Projects](https://github.com/g0livax27/Follow-App/projects/1)
+[Trello-Board](https://github.com/g0livax27/Follow-App/projects/1) using GitHub Projects
 
-Live Link via [Heroku]()
+[Live Link]() via Heroku
 
 ## Unsolved Problems:
 
