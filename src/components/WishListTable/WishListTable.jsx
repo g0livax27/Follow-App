@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import LoggedInHeader from '../LoggedInHeader/LoggedInHeader';
-import Footer from '../Footer/Footer';
 
 export default function WishListTable(){
     const { month } = useParams();
@@ -50,7 +48,7 @@ export default function WishListTable(){
                                                 setRefresh(!refresh);
                                             }
                                         }}>
-                                        Delete
+                                            Delete
                                         </button>
                                     </td>
                                 </tr>

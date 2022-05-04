@@ -48,7 +48,7 @@ export default function BillsTable(){
                                                 setRefresh(!refresh);
                                             }
                                         }}>
-                                        Delete
+                                            Delete
                                         </button>
                                     </td>
                                 </tr>
