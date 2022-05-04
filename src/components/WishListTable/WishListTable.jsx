@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import LoggedInHeader from '../LoggedInHeader/LoggedInHeader';
+import Footer from '../Footer/Footer';
 
 export default function WishListTable(){
     const { month } = useParams();
@@ -19,42 +21,44 @@ export default function WishListTable(){
     }, [refresh]);
 
     return(
-        <table className="wishListTable">
-            <thead>
-                <tr>
-                    <th>Wish List Item</th>
-                    <th>Price</th>
-                    <th>Purchased?</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    items.map((month, i) => {
-                        return(
-                            month.list === "Wish List" &&
-                            <tr key={i}>
-                                <td>{month.name}<br/> <Link to={`/${month._id}/edit`}>Add Note/Edit</Link></td>
-                                <td>${month.amount}</td>
-                                <td>{month.complete ? 'Paid in Full' : 'No, Still Need to Pay'}</td>
-                                <td>
-                                    <button onClick={(evt) => {
-                                        try{
-                                            fetch(`http://localhost:3001/api/expenses/${month._id}`, {method: 'DELETE'});
-                                        }catch(err){
-                                            console.log(err);
-                                        }finally{
-                                            setRefresh(!refresh);
-                                        }
-                                    }}>
-                                      Delete
-                                    </button>
-                                </td>
-                            </tr>
-                        )
-                    })
-                }
-            </tbody>
-        </table>
+        <main>
+            <table className="wishListTable">
+                <thead>
+                    <tr>
+                        <th>Wish List Item</th>
+                        <th>Price</th>
+                        <th>Purchased?</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        items.map((month, i) => {
+                            return(
+                                month.list === "Wish List" &&
+                                <tr key={i}>
+                                    <td>{month.name}<br/> <Link to={`/${month._id}/edit`}>Add Note/Edit</Link></td>
+                                    <td>${month.amount}</td>
+                                    <td>{month.complete ? 'Paid in Full' : 'No, Still Need to Pay'}</td>
+                                    <td>
+                                        <button onClick={(evt) => {
+                                            try{
+                                                fetch(`http://localhost:3001/api/expenses/${month._id}`, {method: 'DELETE'});
+                                            }catch(err){
+                                                console.log(err);
+                                            }finally{
+                                                setRefresh(!refresh);
+                                            }
+                                        }}>
+                                        Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            )
+                        })
+                    }
+                </tbody>
+            </table>
+        </main>
     )
 };

@@ -35,7 +35,7 @@ function App(){
 
   return(
     <main className="App">
-      {/* <Header user={user} setUser{setUser}/> */}
+      {/* <Header user={user} setUser={setUser}/> */}
       <Routes>
         <Route path='/' element={<MainPage/>}/>
         <Route path='/expenses' element={<MonthsPage/>}/>
