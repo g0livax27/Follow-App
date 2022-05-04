@@ -1,4 +1,4 @@
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import LoggedInHeader from '../../components/LoggedInHeader/LoggedInHeader';
 import BackButton from '../../components/BackButton/BackButton';
 import Footer from '../../components/Footer/Footer';
@@ -18,14 +18,24 @@ export default function ListPage(){
             </button>
             <div className='lists'>
                 <div className='billsCard'>
-                    <Link to={`/${month}/bills`}>
+                    <button onClick={() =>{
+                        navigate(`/${month}/bills`)
+                    }}>
                         Bills
-                    </Link>
+                    </button>
+                    <div>
+                        <img src={require(`../../assets/favicon-img.ico`)} alt='follow-app' height='320px' width='285px'/>     
+                    </div>
                 </div>
                 <div className='wishCard'>
-                    <Link to={`/${month}/wishlist`}>
+                    <button onClick={() =>{
+                        navigate(`/${month}/wishlist`)
+                    }}>
                         Wish List
-                    </Link>
+                    </button>
+                    <div>
+                        <img src={require(`../../assets/favicon-img.ico`)} alt='follow-app' height='320px' width='285px'/>     
+                    </div>
                 </div>
             </div>
             <Footer/>

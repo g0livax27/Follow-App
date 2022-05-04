@@ -100,6 +100,22 @@ img {
 
 }
 
+.billTable,
+.wishListTable {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 7px;
+  border: solid orange;
+  height: 450px;
+  max-width: 600px;
+  background-color: white;
+  padding: 20px;
+  align-items: center;
+  overflow-x: scroll;
+}
+
 .newExpense {
   display: flex;
   flex-direction: column;
@@ -116,7 +132,7 @@ img {
 
 table {
   display: flex;
-  background: rgba(221, 213, 213, 0.40);
+  background: white;
   width: 1000px;
   justify-content: center;
   margin: 0 auto;
