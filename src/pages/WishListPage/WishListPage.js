@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import LoggedInHeader from '../../components/LoggedInHeader/LoggedInHeader';
 import BackButton from '../../components/BackButton/BackButton';
+import NewExpenseButton from '../../components/NewExpenseButton/NewExpenseButton';
 import WishListTable from '../../components/WishListTable/WishListTable';
 import Footer from '../../components/Footer/Footer';
 
@@ -11,6 +12,7 @@ export default function WishListPage(){
             <LoggedInHeader/>
             <BackButton/>
             <h1>{month} Wish List</h1>
+            <NewExpenseButton/>
             <WishListTable/>
             <Footer/>
         </main>

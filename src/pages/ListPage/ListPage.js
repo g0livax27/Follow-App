@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import LoggedInHeader from '../../components/LoggedInHeader/LoggedInHeader';
 import BackButton from '../../components/BackButton/BackButton';
+import NewExpenseButton from '../../components/NewExpenseButton/NewExpenseButton';
 import Footer from '../../components/Footer/Footer';
 
 export default function ListPage(){
@@ -11,11 +12,7 @@ export default function ListPage(){
         <main>
             <LoggedInHeader/>
             <BackButton/>
-            <button onClick={() => {
-                navigate(`/expenses/${month}/new`);
-            }}>
-                New Expense
-            </button>
+            <NewExpenseButton/>
             <div className='lists'>
                 <div className='billsCard'>
                     <button onClick={() =>{

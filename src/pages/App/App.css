@@ -108,7 +108,7 @@ img {
   transition: 0.3s;
   border-radius: 7px;
   border: solid orange;
-  height: 450px;
+  max-height: 5000px;
   max-width: 600px;
   background-color: white;
   padding: 20px;
