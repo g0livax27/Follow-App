@@ -21,6 +21,7 @@ export default function WishListTable(){
     return(
         <main>
             <table className="wishListTable">
+                <h3>Still Want</h3>
                 <div className='tableHeader'>
                     <thead>
                         <tr>

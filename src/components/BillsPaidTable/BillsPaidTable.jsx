@@ -21,6 +21,7 @@ export default function BillsPaidTable(){
     return(
         <main>
             <table className="paidTable">
+                <h3>Paid Bills</h3>
                 <div className='tableHeader'>
                     <thead>
                         <tr>

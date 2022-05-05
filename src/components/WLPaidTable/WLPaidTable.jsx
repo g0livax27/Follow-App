@@ -21,6 +21,7 @@ export default function WLPaidTable(){
     return(
         <main>
             <table className="paidTable">
+            <h3>Purchased Items</h3>
                 <div className='tableHeader'>
                     <thead>
                         <tr>
