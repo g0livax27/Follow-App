@@ -1,8 +1,7 @@
 import LoggedInHeader from '../../components/LoggedInHeader/LoggedInHeader';
 import BackButton from '../../components/BackButton/BackButton';
 import NewExpenseButton from '../../components/NewExpenseButton/NewExpenseButton';
-import BillsCard from '../../components/BillsCard/BillsCard';
-import WishListCard from '../../components/WishListCard/WishListCard';
+import Cards from '../../components/Cards/Cards';
 import Footer from '../../components/Footer/Footer';
 
 export default function ListPage(){
@@ -11,8 +10,7 @@ export default function ListPage(){
             <LoggedInHeader/>
             <BackButton/>
             <NewExpenseButton/>
-            <BillsCard/>
-            <WishListCard/>
+            <Cards/>
             <Footer/>
         </main>
     )

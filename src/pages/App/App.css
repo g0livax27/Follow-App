@@ -68,6 +68,7 @@
   height: 400px;
   max-width: 300px;
   background-color: white;
+  display: inline;
 }
 
 .monthCards > Link {
@@ -97,7 +98,6 @@ img {
   display: flex;
   justify-content: center;
   margin-top: 30px;
-
 }
 
 .billTable,
