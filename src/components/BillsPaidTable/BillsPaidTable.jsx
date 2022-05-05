@@ -1,41 +1,46 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export default function BillsPaidTable(){
-    const { month } = useParams();
-    const [ paid, setPaid ] = useState([]);
-    const [ refresh, setRefresh ] = useState(false);
-    // const [ complete, setComplete ] = useState(false);
+export default function BillsPaidTable({ month, paid, refresh, setRefresh }){
+    const [ complete, setComplete ] = useState(false);
     const [ edit, setEdit ] = useState(false);
+    const [ monthId, setMonthId ] = useState('');
 
     useEffect(() => {
-        (async() => {
-        try{
-            const response = await fetch(`http://localhost:3001/api/expenses/${month}`);
-            const data = await response.json();
-            setPaid(data);
-        }catch(err){
-            console.log(err);
+        if(edit){
+            setComplete(true)
+            try{
+                fetch(`http://localhost:3001/api/expenses/${monthId}`, {
+                method: 'PUT',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    complete: complete
+                })
+            })
+            setMonthId('')
+            setRefresh(!refresh)
+            }catch(err){
+                console.log(err)
+            }
+        } else {
+            setComplete(false)
         }
-        })()
-    }, [refresh]);
+    }, [edit]);
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        console.log(edit)
         try{
             fetch(`http://localhost:3001/api/expenses/${month._id}`, {
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
-                    complete: edit
-                }),
+                    complete: complete
+                })
             })
         }catch(err){
             console.log(err)
         }finally{
             setRefresh(!refresh)
-            console.log('this is working')
         }
     };
 
@@ -64,9 +69,8 @@ export default function BillsPaidTable(){
                                             <label className='switch'>
                                                 <input name='complete' type='checkbox'
                                                 onClick={() => {
-                                                    setEdit(!edit)
-                                                    console.log('button checked')
-                                                    console.log(edit)
+                                                    setMonthId(month._id)
+                                                    setEdit(!edit);
                                                 }} />
                                                 <span className='slider round'></span>
                                             </label>
