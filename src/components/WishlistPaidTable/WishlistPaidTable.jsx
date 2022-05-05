@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-export default function WLPaidTable(){
+export default function WishlistPaidTable(){
     const { month } = useParams();
     const [paid, setPaid] = useState([]);
     const [refresh, setRefresh] = useState(false);
@@ -19,9 +19,9 @@ export default function WLPaidTable(){
     }, [refresh]);
 
     return(
-        <main>
-            <table className="paidTable">
-            <h3>Purchased Items</h3>
+        <main className='paidTables'>
+            <table className="wishListPaidTable">
+                <h3>Purchased Items</h3>
                 <div className='tableHeader'>
                     <thead>
                         <tr>

@@ -19,8 +19,8 @@ export default function BillsPaidTable(){
     }, [refresh]);
 
     return(
-        <main>
-            <table className="paidTable">
+        <main className='paidTables'>
+            <table className="billsPaidTable">
                 <h3>Paid Bills</h3>
                 <div className='tableHeader'>
                     <thead>
@@ -36,7 +36,7 @@ export default function BillsPaidTable(){
                     {
                         paid.map((month, i) => {
                             return(
-                                month.list === "Wish List" &&
+                                month.list === "Bills" &&
                                 <tr key={i}>
                                     <td>{month.name}<br/> <Link to={`/${month._id}/edit`}>Add Note/Edit</Link></td>
                                     <td>${month.amount}</td>

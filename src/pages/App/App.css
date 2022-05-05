@@ -83,7 +83,8 @@ img {
   border-radius: 5px 5px 0 0;
 }
 
-.lists {
+.lists,
+.paidTables {
   display: grid;
   grid-template-columns: 300px 300px;
   grid-gap: 20px 20px;
@@ -102,7 +103,8 @@ img {
 
 .billTable,
 .wishListTable,
-.paidTable {
+.billsPaidTable,
+.wishListPaidTable {
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
