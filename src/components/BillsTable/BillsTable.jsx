@@ -16,14 +16,14 @@ export default function BillsTable({ month, paid, refresh, setRefresh }){
                 body: JSON.stringify({
                     complete: complete
                 })
-            })
-            setMonthId('')
-            setRefresh(!refresh)
+            });
+            setMonthId('');
+            setRefresh(!refresh);
             }catch(err){
-                console.log(err)
+                console.log(err);
             }
         } else {
-            setComplete(true)
+            setComplete(true);
         }
     }, [edit]);
 
@@ -40,7 +40,7 @@ export default function BillsTable({ month, paid, refresh, setRefresh }){
         }catch(err){
             console.log(err)
         }finally{
-            setRefresh(!refresh)
+            setRefresh(!refresh);
         }
     };
 
