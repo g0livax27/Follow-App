@@ -21,14 +21,16 @@ export default function BillsTable(){
     return(
         <main>
             <table className="billTable">
-                <thead>
-                    <tr>
-                        <th>Bill</th>
-                        <th>Amount</th>
-                        <th>Paid?</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
+                <div className='tableHeader'>
+                    <thead>
+                        <tr>
+                            <th>Bill</th>
+                            <th>Amount</th>
+                            <th>Paid?</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                </div>
                 <tbody>
                     {
                         bills.map((month, i) => {
