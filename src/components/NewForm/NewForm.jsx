@@ -41,16 +41,20 @@ export default function CreateForm(){
                 <fieldset>
                     Name: <input name='name' ref={name} type='text'/><br/>
                     Amount: <input name='amount' ref={amount} type='text'/><br/><br/>
-                    Paid? <input className='toggleInput' name='complete' id='paidToggle' type='checkbox'
-                        onChange={() => {
-                            console.log(document.getElementById('check').checked);
-                            const isTrue = document.getElementById('check').checked
-                            if(isTrue){
-                                setComplete(true);
-                            } else {
-                                setComplete(false);
-                            }
+                    Paid?                     
+                    <label className='switch'>
+                        <input name='complete' type='checkbox'
+                            onChange={() => {
+                                console.log(document.getElementById('check').checked);
+                                const isTrue = document.getElementById('check').checked
+                                if(isTrue){
+                                    setComplete(true);
+                                } else {
+                                    setComplete(false);
+                                }
                         }}/>
+                        <span className='slider round'></span>
+                    </label>
                     <select ref={list}>
                         <option value='Bills'>Bills</option>
                         <option value='Wish List'>Wish List</option>

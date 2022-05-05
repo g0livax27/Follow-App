@@ -15,7 +15,7 @@ export default function EditForm(){
         evt.preventDefault();
         try{
             const response = await fetch('http://localhost:3001/api/expenses', {
-                method: 'GET',
+                method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
                     month: month,
@@ -53,7 +53,7 @@ export default function EditForm(){
                                     setComplete(false);
                                 }
                         }}/>
-                        <span className='roundSlider'></span>
+                        <span className='slider round'></span>
                     </label>
                     <select ref={list}>
                         <option value='Bills'>Bills</option>

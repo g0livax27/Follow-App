@@ -36,7 +36,7 @@ export default function WishListTable(){
                     {
                         items.map((month, i) => {
                             return(
-                                month.list === "Wish List" &&
+                                month.list === "Wish List" && !month.complete &&
                                 <tr key={i}>
                                     <td>{month.name}<br/> <Link to={`/${month._id}/edit`}>Add Note/Edit</Link></td>
                                     <td>${month.amount}</td>

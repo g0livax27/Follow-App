@@ -8,13 +8,14 @@ import Footer from '../../components/Footer/Footer';
 
 export default function BillsPage(){
     const { month } = useParams();
+
     return(
         <main>
             <LoggedInHeader/>
             <BackButton/>
             <h1>{month} Bills</h1>
             <NewExpenseButton/>
-            <BillsTable/>
+            <BillsTable/> 
             <BillsPaidTable/>
             <Footer/>
         </main>
