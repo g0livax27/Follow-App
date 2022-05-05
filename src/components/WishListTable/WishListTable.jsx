@@ -21,17 +21,15 @@ export default function WishListTable(){
     return(
         <main>
             <table className="wishListTable">
-            <div className='tableHeader'>
-                <thead>
-                    <tr>
-                        
+                <div className='tableHeader'>
+                    <thead>
+                        <tr>
                             <th>Wish List Item</th>
                             <th>Price</th>
                             <th>Purchased?</th>
                             <th>Delete</th>
-                        
-                    </tr>
-                </thead>
+                        </tr>
+                    </thead>
                 </div>
                 <tbody>
                     {
