@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import LoginForm from "../../components/LoginForm/LoginForm";
 
@@ -8,7 +8,7 @@ export default function AuthPage({setUser}){
     return(
         <main>
             <h1>Auth/Main Page</h1>
-            <button onClick={() => setShowSignUp(!showSignUp) }>{ showSignUp ? 'Log In' : 'Sign Up'}</button>
+            <button onClick={ () => setShowSignUp(!showSignUp) }>{ showSignUp ? 'Log In' : 'Sign Up' }</button>
                 {
                     showSignUp?
                     <SignUpForm setUser={setUser}/> :
