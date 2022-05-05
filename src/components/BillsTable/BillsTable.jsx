@@ -3,8 +3,8 @@ import { Link, useParams } from 'react-router-dom';
 
 export default function BillsTable(){
     const { month } = useParams();
-    const [bills, setBills] = useState([]);
-    const [refresh, setRefresh] = useState(false);
+    const [ bills, setBills ] = useState([]);
+    const [ refresh, setRefresh ] = useState(false);
 
     useEffect(() => {
         (async() => {
@@ -20,10 +20,9 @@ export default function BillsTable(){
 
     return(
         <main>
+            <h3>Need to Pay</h3>
             <table className="billTable">
-                <h3>Need to Pay</h3>
-                <div className='tableHeader'>
-                    <thead>
+                    <thead className='tableHeader'>
                         <tr>
                             <th>Bill</th>
                             <th>Amount</th>
@@ -31,7 +30,6 @@ export default function BillsTable(){
                             <th>Delete</th>
                         </tr>
                     </thead>
-                </div>
                 <tbody>
                     {
                         bills.map((month, i) => {

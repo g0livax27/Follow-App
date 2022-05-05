@@ -1,15 +1,17 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 export default function CreateForm(){
+    const { month } = useParams();
+    const navigate = useNavigate();
+    
     const name = useRef(null);
     const amount = useRef(null);
     const addNote = useRef(null);
     const list = useRef('Bills');
 
     const [ complete, setComplete ] = useState(false);
-    const { month } = useParams();
-    const navigate = useNavigate();
+    const [ paid, setPaid ] = useState(false);
 
     const handleSubmit = async (evt) => {
         evt.preventDefault();
@@ -21,7 +23,7 @@ export default function CreateForm(){
                     month: month,
                     name: name.current.value,
                     amount: amount.current.value,
-                    complete: complete,
+                    complete: paid,
                     note: addNote.current.value,
                     list: list.current.value
                 }),
@@ -35,6 +37,14 @@ export default function CreateForm(){
         }
     };
 
+    useEffect(() => {
+        if(complete){
+            setPaid(true)
+        } else {
+            setPaid(false)
+        }
+    }, [complete]);
+
     return(
         <main className='create'>
             <form className='newExpense' onSubmit={handleSubmit}>
@@ -44,15 +54,9 @@ export default function CreateForm(){
                     Paid?                     
                     <label className='switch'>
                         <input name='complete' type='checkbox'
-                            onChange={() => {
-                                console.log(document.getElementById('check').checked);
-                                const isTrue = document.getElementById('check').checked
-                                if(isTrue){
-                                    setComplete(true);
-                                } else {
-                                    setComplete(false);
-                                }
-                        }}/>
+                            onClick={() => {
+                                setComplete(!complete)
+                            }}/>
                         <span className='slider round'></span>
                     </label>
                     <select ref={list}>

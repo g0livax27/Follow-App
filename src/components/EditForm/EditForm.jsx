@@ -1,33 +1,35 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-export default function EditForm(){
+export default function CreateForm(){
+    const { month } = useParams();
+    const navigate = useNavigate();
+    
     const name = useRef(null);
     const amount = useRef(null);
     const addNote = useRef(null);
     const list = useRef('Bills');
 
     const [ complete, setComplete ] = useState(false);
-    const { month } = useParams();
-    const navigate = useNavigate();
+    const [ paid, setPaid ] = useState(false);
 
     const handleSubmit = async (evt) => {
         evt.preventDefault();
         try{
             const response = await fetch('http://localhost:3001/api/expenses', {
-                method: 'PUT',
+                method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
                     month: month,
                     name: name.current.value,
                     amount: amount.current.value,
-                    complete: complete,
+                    complete: paid,
                     note: addNote.current.value,
                     list: list.current.value
                 }),
             });
             if(response.status === 200){
-                console.log('Expense Updated');
+                console.log('Expense Created');
                 navigate(`/${month}/${(list.current.value).split(' ').join('').toLowerCase()}`);
             };
         }catch(err){
@@ -35,24 +37,26 @@ export default function EditForm(){
         }
     };
 
+    useEffect(() => {
+        if(complete){
+            setPaid(true)
+        } else {
+            setPaid(false)
+        }
+    }, [complete]);
+
     return(
-        <main className='edit'>
-            <form className='editExpense' onSubmit={handleSubmit}>
+        <main className='create'>
+            <form className='newExpense' onSubmit={handleSubmit}>
                 <fieldset>
                     Name: <input name='name' ref={name} type='text'/><br/>
                     Amount: <input name='amount' ref={amount} type='text'/><br/><br/>
-                    Paid? 
+                    Paid?                     
                     <label className='switch'>
-                        <input name='complete' type='checkbox'
-                            onChange={() => {
-                                console.log(document.getElementById('check').checked);
-                                const isTrue = document.getElementById('check').checked
-                                if(isTrue){
-                                    setComplete(true);
-                                } else {
-                                    setComplete(false);
-                                }
-                        }}/>
+                        <input name='complete' type='checkbox' id='check'
+                            onClick={() => {
+                                setComplete(!complete)
+                            }}/>
                         <span className='slider round'></span>
                     </label>
                     <select ref={list}>
@@ -60,9 +64,9 @@ export default function EditForm(){
                         <option value='Wish List'>Wish List</option>
                     </select>
                 </fieldset><br/>
-                <textarea placeholder='add/edit note' ref={addNote} type='textbox'/><br/>
+                <textarea placeholder='add note' ref={addNote} type='textbox'/><br/>
                 <button className='btn-sm'>
-                    Update
+                    Add
                 </button>
             </form>
         </main>

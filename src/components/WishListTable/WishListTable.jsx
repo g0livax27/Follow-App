@@ -20,10 +20,9 @@ export default function WishListTable(){
 
     return(
         <main>
+            <h3>Still Want</h3>
             <table className="wishListTable">
-                <h3>Still Want</h3>
-                <div className='tableHeader'>
-                    <thead>
+                    <thead className='tableHeader'>
                         <tr>
                             <th>Wish List Item</th>
                             <th>Price</th>
@@ -31,7 +30,6 @@ export default function WishListTable(){
                             <th>Delete</th>
                         </tr>
                     </thead>
-                </div>
                 <tbody>
                     {
                         items.map((month, i) => {

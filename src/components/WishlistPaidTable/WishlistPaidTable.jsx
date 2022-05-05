@@ -20,10 +20,9 @@ export default function WishlistPaidTable(){
 
     return(
         <main className='paidTables'>
+            <h3>Purchased Items</h3>
             <table className="wishListPaidTable">
-                <h3>Purchased Items</h3>
-                <div className='tableHeader'>
-                    <thead>
+                    <thead className='tableHeader'>
                         <tr>
                             <th>Wish List Item</th>
                             <th>Price</th>
@@ -31,7 +30,6 @@ export default function WishlistPaidTable(){
                             <th>Delete</th>
                         </tr>
                     </thead>
-                </div>
                 <tbody>
                     {
                         paid.map((month, i) => {
