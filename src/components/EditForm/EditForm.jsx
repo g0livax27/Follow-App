@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-export default function CreateForm(){
-    const { month } = useParams();
+export default function CreateForm({ months, refresh, setRefresh }){
     const navigate = useNavigate();
-    
+    const { id } = useParams();
+    const found = months.find(expense => expense._id === id);
+    console.log(found)
+
     const name = useRef(null);
     const amount = useRef(null);
     const addNote = useRef(null);
@@ -16,11 +18,10 @@ export default function CreateForm(){
     const handleSubmit = async (evt) => {
         evt.preventDefault();
         try{
-            const response = await fetch('http://localhost:3001/api/expenses', {
-                method: 'POST',
+            const response = await fetch(`http://localhost:3001/api/expenses/${id}`, {
+                method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
-                    month: month,
                     name: name.current.value,
                     amount: amount.current.value,
                     complete: paid,
@@ -28,10 +29,10 @@ export default function CreateForm(){
                     list: list.current.value
                 }),
             });
-            if(response.status === 200){
-                console.log('Expense Created');
-                navigate(`/${month}/${(list.current.value).split(' ').join('').toLowerCase()}`);
-            };
+            // if(response.status === 200){
+            //     console.log('Expense Updated');
+            //     navigate(`/${month}/${(list.current.value).split(' ').join('').toLowerCase()}`);
+            // };
         }catch(err){
             console.log(err);
         }
@@ -46,11 +47,11 @@ export default function CreateForm(){
     }, [complete]);
 
     return(
-        <main className='create'>
-            <form className='newExpense' onSubmit={handleSubmit}>
+        <main className='edit'>
+            <form className='editExpense' onSubmit={handleSubmit}>
                 <fieldset>
-                    Name: <input name='name' ref={name} type='text'/><br/>
-                    Amount: <input name='amount' ref={amount} type='text'/><br/><br/>
+                    Name: <input defaultValue={found.name} name='name' ref={name} type='text'/><br/>
+                    Amount: <input defaultValue={found.amount} name='amount' ref={amount} type='text'/><br/><br/>
                     Paid?                     
                     <label className='switch'>
                         <input name='complete' type='checkbox' id='check'
@@ -59,14 +60,16 @@ export default function CreateForm(){
                             }}/>
                         <span className='slider round'></span>
                     </label>
-                    <select ref={list}>
+                    <select defaultValue={found.list} ref={list}>
                         <option value='Bills'>Bills</option>
                         <option value='Wish List'>Wish List</option>
                     </select>
                 </fieldset><br/>
-                <textarea placeholder='add note' ref={addNote} type='textbox'/><br/>
-                <button className='btn-sm'>
-                    Add
+                <textarea defaultValue={found.addNote} placeholder='add/edit note' ref={addNote} type='textbox'/><br/>
+                <button className='btn-sm'
+                    onClick={(evt) => {
+                }}>
+                    Update
                 </button>
             </form>
         </main>

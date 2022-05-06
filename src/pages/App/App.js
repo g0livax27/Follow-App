@@ -16,6 +16,7 @@ import NewPage from '../NewPage/NewPage';
 import ListsPage from '../ListPage/ListPage';
 import BillsPage from '../BillsPage/BillsPage';
 import WishListPage from '../WishListPage/WishListPage';
+import EditPage from '../EditPage/EditPage';
 
 function App(){
   const [ user, setUser ] = useState(getUser());
@@ -37,12 +38,13 @@ function App(){
     <main className="App">
       {/* <Header user={user} setUser={setUser}/> */}
       <Routes>
-        <Route path='/' element={<MainPage/>}/>
-        <Route path='/expenses' element={<MonthsPage/>}/>
-        <Route path='/expenses/:month/new' element={<NewPage/>}/>
-        <Route path='/:month' element={<ListsPage expenses={expenses}/>}/>
-        <Route path='/:month/bills' element={<BillsPage expenses={expenses}/>}/>
-        <Route path='/:month/wishlist' element={<WishListPage item={expenses}/>}/>
+        <Route path='/' element={<MainPage/>} />
+        <Route path='/expenses' element={<MonthsPage/>} />
+        <Route path='/expenses/:month/new' element={<NewPage/>} />
+        <Route path='/:month' element={<ListsPage expenses={expenses}/>} />
+        <Route path='/:month/bills' element={<BillsPage expenses={expenses}/>} />
+        <Route path='/:month/wishlist' element={<WishListPage item={expenses}/>} />
+        <Route path='/:id/edit' element={<EditPage months={expenses}/>} />
       </Routes>
       {/* <Footer/> */}
     </main>

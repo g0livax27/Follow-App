@@ -1,7 +1,6 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-export default function Cards(){
-    const { month } = useParams();
+export default function Cards({ month }){
     const navigate = useNavigate();
     
     return(

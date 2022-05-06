@@ -94,7 +94,8 @@ img {
   width: 300px;;
 }
 
-.create {
+.create,
+.edit {
   display: flex;
   justify-content: center;
   margin-top: 30px;
@@ -126,7 +127,8 @@ img {
   padding: 2px;
 }
 
-.newExpense {
+.newExpense,
+.editExpense {
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
