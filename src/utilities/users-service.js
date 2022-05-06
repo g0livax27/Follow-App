@@ -27,13 +27,11 @@ export function getToken(){
     return token;
 };
 
-
 // GetUser
 export function getUser(){
     const token = getToken();
     return token ? JSON.parse(atob(token.split('.')[1])).user : null;
 };
-
 
 // logout
 export function logOut(){

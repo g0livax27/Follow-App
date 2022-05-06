@@ -27,10 +27,10 @@ export default function BillsPaidTable({ month, paid, refresh, setRefresh }){
         }
     }, [edit]);
 
-    const handleSubmit = (evt) => {
+    const handleSubmit = async (evt) => {
         evt.preventDefault();
         try{
-            fetch(`http://localhost:3001/api/expenses/${month._id}`, {
+            await fetch(`http://localhost:3001/api/expenses/${month._id}`, {
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
