@@ -12,11 +12,6 @@ async function index(req, res) {
     }
 };
 
-// New Routes \\
-// router.get('/new', (req, res) => {
-//     res.render('Expenses/New')
-// });
-
 // Delete Route \\
 async function Delete(req, res) {
     try{

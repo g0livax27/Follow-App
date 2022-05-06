@@ -1,24 +1,23 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-export default function CreateForm({ months, refresh, setRefresh }){
+export default function CreateForm({ months }){
     const navigate = useNavigate();
     const { id } = useParams();
-    const found = months.find(expense => expense._id === id);
-    console.log(found)
+    const [ editBtn, setEditBtn ] = useState(false);
+    const [ complete, setComplete ] = useState(false);
+    const [ paid, setPaid ] = useState(false);
 
     const name = useRef(null);
     const amount = useRef(null);
     const addNote = useRef(null);
     const list = useRef('Bills');
 
-    const [ complete, setComplete ] = useState(false);
-    const [ paid, setPaid ] = useState(false);
-
-    const handleSubmit = async (evt) => {
-        evt.preventDefault();
+    const foundExpense = months.find(expense => expense._id === id);
+    useEffect(() => {
+        if(editBtn){
         try{
-            const response = await fetch(`http://localhost:3001/api/expenses/${id}`, {
+            fetch(`http://localhost:3001/api/expenses/${id}`, {
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
@@ -29,14 +28,14 @@ export default function CreateForm({ months, refresh, setRefresh }){
                     list: list.current.value
                 }),
             });
-            // if(response.status === 200){
-            //     console.log('Expense Updated');
-            //     navigate(`/${month}/${(list.current.value).split(' ').join('').toLowerCase()}`);
-            // };
+                console.log('Expense Updated');
+                navigate(`/${foundExpense.month}/${(list.current.value).split(' ').join('').toLowerCase()}`);
+                setEditBtn(false);
         }catch(err){
             console.log(err);
         }
-    };
+        }
+    }, [editBtn]);
 
     useEffect(() => {
         if(complete){
@@ -48,10 +47,10 @@ export default function CreateForm({ months, refresh, setRefresh }){
 
     return(
         <main className='edit'>
-            <form className='editExpense' onSubmit={handleSubmit}>
+            <form className='editExpense'>
                 <fieldset>
-                    Name: <input defaultValue={found.name} name='name' ref={name} type='text'/><br/>
-                    Amount: <input defaultValue={found.amount} name='amount' ref={amount} type='text'/><br/><br/>
+                    Name: <input defaultValue={foundExpense.name} name='name' ref={name} type='text'/><br/>
+                    Amount: <input defaultValue={foundExpense.amount} name='amount' ref={amount} type='text'/><br/><br/>
                     Paid?                     
                     <label className='switch'>
                         <input name='complete' type='checkbox' id='check'
@@ -60,14 +59,15 @@ export default function CreateForm({ months, refresh, setRefresh }){
                             }}/>
                         <span className='slider round'></span>
                     </label>
-                    <select defaultValue={found.list} ref={list}>
+                    <select defaultValue={foundExpense.list} ref={list}>
                         <option value='Bills'>Bills</option>
                         <option value='Wish List'>Wish List</option>
                     </select>
                 </fieldset><br/>
-                <textarea defaultValue={found.addNote} placeholder='add/edit note' ref={addNote} type='textbox'/><br/>
+                <textarea defaultValue={foundExpense.addNote} placeholder='add/edit note' ref={addNote} type='textbox'/><br/>
                 <button className='btn-sm'
                     onClick={(evt) => {
+                        setEditBtn(true)
                 }}>
                     Update
                 </button>

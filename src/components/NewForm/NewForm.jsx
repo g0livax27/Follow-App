@@ -29,7 +29,6 @@ export default function CreateForm(){
                 }),
             });
             if(response.status === 200){
-                console.log('Expense Created');
                 navigate(`/${month}/${(list.current.value).split(' ').join('').toLowerCase()}`);
             };
         }catch(err){
