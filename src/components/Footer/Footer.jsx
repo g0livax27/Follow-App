@@ -1,7 +1,7 @@
 export default function Footer() {
     return(
         <main className="footer">
-            <h5>created by: Gerimae Oliva - 2022</h5>
+            <h6>Gerimae Oliva - 2022</h6>
             <div className="iconLinks">
                 <p>
                     LinkedIn
