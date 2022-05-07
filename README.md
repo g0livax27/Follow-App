@@ -24,7 +24,7 @@ PLAN , TRACK, and SAVE by logging your expenditures from month to month.
 
 [ERD](https://miro.com/app/board/uXjVO2gSYNs=/) using Miro
 
-[Live Link]() via Heroku
+[Live Link](https://follow-app-v1.herokuapp.com/) via Heroku
 
 ## Unsolved Problems:
 
