@@ -18,6 +18,8 @@
 
 [Trello-Board](https://github.com/g0livax27/Follow-App/projects/1) using GitHub Projects
 
+[ERD](https://miro.com/app/board/uXjVO2gSYNs=/) using Miro
+
 [Live Link]() via Heroku
 
 ## Unsolved Problems:
