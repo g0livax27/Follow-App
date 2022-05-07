@@ -1,16 +1,12 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import bootstrap from 'bootstrap';
-import { Nav } from 'react-bootstrap';
-import { Navbar } from 'react-bootstrap';
-import { Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import Header from '../../components/Header/Header';
-import LoggedInHeader from '../../components/LoggedInHeader/LoggedInHeader';
+// import LoggedInHeader from '../../components/LoggedInHeader/LoggedInHeader';
 import Footer from '../../components/Footer/Footer';
 import MainPage from '../MainPage/MainPage';
+// import AuthPage from '../AuthPage/AuthPage';
 import MonthsPage from '../MonthsPage/MonthsPage';
 import NewPage from '../NewPage/NewPage';
 import ListsPage from '../ListPage/ListPage';
@@ -36,6 +32,7 @@ function App(){
 
   return(
     <main className="App">
+      {/* {user ? */}
       {/* <Header user={user} setUser={setUser}/> */}
       <Routes>
         <Route path='/' element={<MainPage/>} />
@@ -46,7 +43,9 @@ function App(){
         <Route path='/:month/wishlist' element={<WishListPage item={expenses}/>} />
         <Route path='/:id/edit' element={<EditPage months={expenses}/>} />
       </Routes>
-      {/* <Footer/> */}
+      {/* // :
+      // <AuthPage/> */}
+      {/* // } */}
     </main>
   )
 };
