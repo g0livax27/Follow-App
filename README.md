@@ -1,6 +1,6 @@
 ## Intro:
 
-![Follow Logo](src/assets/followlogo-nowords.png)
+![Follow Logo](src/assets/followthemoney.png)
 
 ## Technologies Used:
 
