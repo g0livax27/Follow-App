@@ -23,3 +23,6 @@
 ## Unsolved Problems:
 
 ## Future Enhancements:
+
+## Credits:
+Mindy Miller: logos and favicon images.
