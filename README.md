@@ -2,6 +2,8 @@
 
 ![Follow Logo](src/assets/followthemoney.png)
 
+PLAN , TRACK, and SAVE by logging your expenditures from month to month.
+
 ## Technologies Used:
 
 - Bcrypt
@@ -32,7 +34,7 @@
 
 ## Future Enhancements:
 
-- Function to add up the total sum of amounts entered to view monthly spending
+- Function to add up amounts entered to view total sum of monthly spending
 
 ## Credits:
 
