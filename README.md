@@ -22,7 +22,7 @@ PLAN , TRACK, and SAVE by logging your expenditures from month to month.
 
 [Trello-Board](https://github.com/g0livax27/Follow-App/projects/1) using GitHub Projects
 
-[ERD](https://miro.com/app/board/uXjVO2gSYNs=/) using Miro
+[ERD](https://miro.com/app/board/uXjVO2gSYNs=/?share_link_id=479985147186) using Miro
 
 [Live Link](https://follow-app-v1.herokuapp.com/) via Heroku
 
