@@ -19,6 +19,7 @@ PLAN , TRACK, and SAVE by logging your expenditures from month to month.
 ## Getting Started:
 
 [Wireframe](https://miro.com/app/board/uXjVO65UKTM=/) using Miro
+![Wire Frame](src/assets/follow-app-wireframe-screenshot.png)
 
 [Trello-Board](https://github.com/g0livax27/Follow-App/projects/1) using GitHub Projects
 
