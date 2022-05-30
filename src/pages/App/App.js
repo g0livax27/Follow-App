@@ -14,34 +14,34 @@ import BillsPage from '../BillsPage/BillsPage';
 import WishListPage from '../WishListPage/WishListPage';
 import EditPage from '../EditPage/EditPage';
 
-function App(){
-  const [ user, setUser ] = useState(getUser());
-  const [ expenses, setExpenses ] = useState([]);
+function App() {
+  const [user, setUser] = useState(getUser());
+  const [expenses, setExpenses] = useState([]);
 
   useEffect(() => {
-    (async() => {
-      try{
-        const response = await fetch('http://localhost:3001/api/expenses');
+    (async () => {
+      try {
+        const response = await fetch('/api/expenses');
         const data = await response.json();
         setExpenses(data);
-      }catch(err){
+      } catch (err) {
         console.log(err);
       }
     })()
   }, []);
 
-  return(
+  return (
     <main className="App">
       {/* {user ? */}
       {/* <Header user={user} setUser={setUser}/> */}
       <Routes>
-        <Route path='/' element={<MainPage/>} />
-        <Route path='/expenses' element={<MonthsPage/>} />
-        <Route path='/expenses/:month/new' element={<NewPage/>} />
-        <Route path='/:month' element={<ListsPage expenses={expenses}/>} />
-        <Route path='/:month/bills' element={<BillsPage expenses={expenses}/>} />
-        <Route path='/:month/wishlist' element={<WishListPage item={expenses}/>} />
-        <Route path='/:id/edit' element={<EditPage months={expenses}/>} />
+        <Route path='/' element={<MainPage />} />
+        <Route path='/expenses' element={<MonthsPage />} />
+        <Route path='/expenses/:month/new' element={<NewPage />} />
+        <Route path='/:month' element={<ListsPage expenses={expenses} />} />
+        <Route path='/:month/bills' element={<BillsPage expenses={expenses} />} />
+        <Route path='/:month/wishlist' element={<WishListPage item={expenses} />} />
+        <Route path='/:id/edit' element={<EditPage months={expenses} />} />
       </Routes>
       {/* // :
       // <AuthPage/> */}
