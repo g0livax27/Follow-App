@@ -1,16 +1,17 @@
 .App {
   text-align: center;
+  height: 100vh;
   max-width: 100vw !important;
   margin: 0 auto !important;
 }
 
 .headerLogo {
-  height: 30vmin;
+  /* height: 30vmin; */
   width: 100%;
   background: black;
 }
 
-.headerLogo>.headerBtn {
+.headerBtn {
   display: flex;
   justify-content: left;
   background: black;
@@ -32,6 +33,26 @@
   display: flex;
   background: black;
 }
+
+.body-styling {
+  overflow: scroll;
+}
+
+.form-styling {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 25px 0;
+}
+
+.form-container {
+  display: flex;
+  margin: 30px 0 0 0;
+  border: solid orange;
+  border-radius: 7px;
+  inline-size: 400px;
+  align-items: center;
+}
+
 
 .mainCards {
   display: flex;
@@ -236,19 +257,23 @@ input:checked+.slider:before {
 }
 
 .footer {
-  display: grid;
-  justify-content: center;
-  position: float;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* position: float; */
+  height: 100px;
   color: var(--white);
-  background-color: #1C78BB;
+  border: solid #1C78BB;
+}
+
+.footer>img {
+  height: 100%;
 }
 
 .iconLinks {
   display: flex;
   flex-direction: row;
   width: 100%;
-  justify-content: space-between;
+  margin-bottom: 20px;
+  justify-content: space-around;
 }

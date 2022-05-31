@@ -18,7 +18,7 @@ export default function Header({ user, setShowSignUp, setShowLogin, refresh, set
                 !user ?
                     <div className='headerLogo'>
                         <img src={require(`../../assets/followthemoney.png`)} alt='follow-app' height='80%' width='100%' />
-                        <div>
+                        <div className='headerBtn'>
                             <button onClick={() => {
                                 handleClick('Log In')
                             }}>Log In</button>
