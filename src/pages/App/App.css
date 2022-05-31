@@ -7,11 +7,10 @@
 .headerLogo {
   height: 30vmin;
   width: 100%;
-  pointer-events: none;
   background: black;
 }
 
-.headerLogo > .headerBtn {
+.headerLogo>.headerBtn {
   display: flex;
   justify-content: left;
   background: black;
@@ -39,9 +38,9 @@
   justify-content: center;
 }
 
-.mainCards > .cardA,
-.mainCards > .cardB,
-.mainCards > .cardC {
+.mainCards>.cardA,
+.mainCards>.cardB,
+.mainCards>.cardC {
   margin: 30px;
   padding: 20px;
   border: solid orange;
@@ -59,9 +58,9 @@
 }
 
 .monthCards,
-.lists > .billsCard,
-.lists > .wishCard {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+.lists>.billsCard,
+.lists>.wishCard {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border: solid orange;
   border-radius: 7px;
@@ -71,12 +70,12 @@
   display: inline;
 }
 
-.monthCards > Link {
+.monthCards>Link {
   background-size: cover;
 }
 
 .monthCards:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 img {
@@ -91,7 +90,8 @@ img {
   margin-top: 30px;
   justify-content: center;
   height: 400px;
-  width: 300px;;
+  width: 300px;
+  ;
 }
 
 .create,
@@ -107,7 +107,7 @@ img {
 .wishListPaidTable {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border: solid orange;
   border-radius: 7px;
@@ -119,7 +119,7 @@ img {
   overflow-x: scroll;
 }
 
-.tableHeader >thead > tr > th {
+.tableHeader>thead>tr>th {
   display: flexbox;
   justify-content: space-between;
   border: solid black;
@@ -131,7 +131,7 @@ img {
 .editExpense {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 7px;
   border: solid orange;
@@ -212,15 +212,15 @@ td {
   transition: .4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: #1C78BB;
 }
 
-input:focus + .slider {
+input:focus+.slider {
   box-shadow: 0 0 1px #1C78BB;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
@@ -242,7 +242,8 @@ input:checked + .slider:before {
   bottom: 0;
   left: 0;
   right: 0;
-  color: #1C78BB;
+  color: var(--white);
+  background-color: #1C78BB;
 }
 
 .iconLinks {
