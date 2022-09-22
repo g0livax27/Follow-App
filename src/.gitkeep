@@ -1,0 +1,7 @@
+/* 
+src folder (and everything in it) - frontend
+
+routes, models, config & controllers folders - backend
+
+public folder - media storage for frontend
+*/
